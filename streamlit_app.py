@@ -47,6 +47,7 @@ def train_model(data):
 # Créer l'interface utilisateur de l'application
 def app_ui():
     st.title("Prédiction de survie d'un passager personnalisé au Titanic")
+    st.markdown('Projet L2I1: Machine Learning from Disaster')
     st.markdown('Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager.')
 
     # Chargement de données
@@ -87,15 +88,6 @@ def app_ui():
     last_prediction = prediction[-1]
     
     # Afficher le résultat prévu
-    if st.button("Faire la prédiction"):
-        st.write("Voici les données de ce passager")
-        st.write("Pclass：", features['Pclass'][0])
-        st.write("Sex：", features['Sex'][0])
-        st.write("Age：", features['Age'][0])
-        st.write("Sibsp：", features['SibSp'][0])
-        st.write("Parch：", features['Parch'][0])
-        st.write("Fare：", features['Fare'][0])
-        st.write("Embarked：", features['Embarked'][0])
     
     if last_prediction == 1:
         st.success("Résultat：survivant")
