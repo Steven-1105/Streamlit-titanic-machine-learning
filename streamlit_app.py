@@ -18,7 +18,7 @@ def preprocess_data(data,train):
     if data['Age'].std() == 0:
         data['Age'] = data['Age'] - train['Age'].mean()
     else:
-        data['Age'] = (data['Age'] - train['Age'].mean()) / data['Age'].std()
+        data['Age'] = (data['Age'] - train['Age'].mean()) / train['Age'].std()
     
     #Sex
     data.loc[data.Sex=="male",'Sex']='0'
@@ -35,7 +35,7 @@ def preprocess_data(data,train):
     if data['Fare'].std() == 0:
         data['Fare'] = data['Fare'] - train['Fare'].mean()
     else:
-        data['Fare'] = (data['Fare'] - train['Fare'].mean()) / data['Fare'].std()
+        data['Fare'] = (data['Fare'] - train['Fare'].mean()) / train['Fare'].std()
     
     return data
 
