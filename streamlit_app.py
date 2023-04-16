@@ -10,7 +10,7 @@ import seaborn as sns
 # 加载数据集
 @st.cache
 def load_data():
-    data = pd.read_csv('train_.csv')
+    data = pd.read_csv('train_fini.csv')
     return data
 
 # 训练模型
