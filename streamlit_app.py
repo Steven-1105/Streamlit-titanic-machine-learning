@@ -12,32 +12,26 @@ def load_data():
     data = pd.read_csv("train_fini.csv")
     return data
 
-def preprocess_data(data,train):
+def preprocess_data(test):
     #Age
-    data['Age'] = data['Age'].fillna(train['Age'].median())
-    if data['Age'].std() == 0:
-        data['Age'] = data['Age'] - train['Age'].mean()
-    else:
-        data['Age'] = (data['Age'] - train['Age'].mean()) / train['Age'].std()
+    test['Age'] = test['Age'].fillna(test['Age'].median())
+    test['Age'] = (test['Age']-test['Age'].mean())/test['Age'].std()
     
     #Sex
-    data.loc[data.Sex=="male",'Sex']='0'
-    data.loc[data.Sex=="female",'Sex']='1'
+    test.loc[test.Sex=="male",'Sex']='0'
+    test.loc[test.Sex=="female",'Sex']='1'
     
     #Embarked
-    data.loc[data.Embarked=="C",'Embarked']='1'
-    data.loc[data.Embarked=="S",'Embarked']='2'
-    data.loc[data.Embarked.isna(),'Embarked']='2'
-    data.loc[data.Embarked=="Q",'Embarked']='3'
+    test.loc[test.Embarked=="C",'Embarked']='1'
+    test.loc[test.Embarked=="S",'Embarked']='2'
+    test.loc[test.Embarked.isna(),'Embarked']='2'
+    test.loc[test.Embarked=="Q",'Embarked']='3'
     
     #Fare
-    data['Fare'] = data['Fare'].fillna(train['Fare'].median())
-    if data['Fare'].std() == 0:
-        data['Fare'] = data['Fare'] - train['Fare'].mean()
-    else:
-        data['Fare'] = (data['Fare'] - train['Fare'].mean()) / train['Fare'].std()
+    test['Fare'] = test['Fare'].fillna(test['Fare'].median())
+    test['Fare'] = (test['Fare']-test['Fare'].mean())/test['Fare'].std()
     
-    return data
+    return test
 
 
 
@@ -57,7 +51,10 @@ def app_ui():
 
     # 加载数据集
     train = load_data()
-
+    test = pd.read_csv("test.csv")
+    features_drop=['Name','Ticket','Cabin','PassengerId']
+    test=test.drop(features_drop, axis=1)
+    
     # 训练模型
     model = train_model(train)
 
@@ -81,10 +78,12 @@ def app_ui():
          'Embarked': embarked}
     ])
     
-    features = preprocess_data(features,train)
+    all_passengers = pd.concat([test, features])
+    all_passengers = preprocess_data(all_passengers)
     
     # 进行预测
-    #prediction = model.predict(features)
+    prediction = model.predict(all_passengers)
+    last_prediction = prediction[-1]
     
     # 显示预测结果
     if st.button("预测"):
@@ -99,7 +98,7 @@ def app_ui():
         st.write("船票价格：", features['Fare'][0])
         st.write("登船港口：", features['Embarked'][0])
     
-    #if prediction[0] == 1:
+    #if last_prediction[0] == 1:
         #st.success("预测结果：乘客生还")
     #else:
         #st.error("预测结果：乘客未生还")
