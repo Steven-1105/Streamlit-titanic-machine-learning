@@ -70,16 +70,17 @@ def app_ui():
     
     # 进行预测
     prediction = model.predict(features)
-# 显示预测结果
-if st.button("预测"):
-    st.write("当前乘客信息：")
-    st.write("船票等级：", pclass)
-    st.write("性别：", sex)
-    st.write("年龄：", age)
-    st.write("兄弟姐妹/配偶数量：", sibsp)
-    st.write("父母/子女数量：", parch)
-    st.write("船票价格：", fare)
-    st.write("登船港口：", embarked)
+    
+    # 显示预测结果
+    if st.button("预测"):
+        st.write("当前乘客信息：")
+        st.write("船票等级：", pclass)
+        st.write("性别：", sex)
+        st.write("年龄：", age)
+        st.write("兄弟姐妹/配偶数量：", sibsp)
+        st.write("父母/子女数量：", parch)
+        st.write("船票价格：", fare)
+        st.write("登船港口：", embarked)
     
     if prediction[0] == 1:
         st.success("预测结果：乘客生还")
