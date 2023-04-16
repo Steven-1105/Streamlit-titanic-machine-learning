@@ -65,15 +65,15 @@ def app_ui():
     embarked = st.selectbox('登船港口', ['C', 'Q', 'S'])
 
     # 创建一个特征向量
-    features = pd.DataFrame({
-        'Pclass': [pclass],
-        'Sex': [sex],
-        'Age': [age],
-        'SibSp': [sibsp],
-        'Parch': [parch],
-        'Fare': [fare],
-        'Embarked': [embarked]
-    })
+    features = pd.DataFrame([
+        {'Pclass': pclass,
+         'Sex': sex,
+         'Age': age,
+         'SibSp': sibsp,
+         'Parch': parch,
+         'Fare': fare,
+         'Embarked': embarked}
+    ])
     
     features = preprocess_data(features,train)
     
@@ -83,13 +83,13 @@ def app_ui():
     # 显示预测结果
     if st.button("预测"):
         st.write("当前乘客信息：")
-        st.write("船票等级：", pclass)
-        st.write("性别：", sex)
-        st.write("年龄：", age)
-        st.write("兄弟姐妹/配偶数量：", sibsp)
-        st.write("父母/子女数量：", parch)
-        st.write("船票价格：", fare)
-        st.write("登船港口：", embarked)
+        st.write("船票等级：", features[0])
+        st.write("性别：", features[1])
+        st.write("年龄：", features[3])
+        st.write("兄弟姐妹/配偶数量：", features[4])
+        st.write("父母/子女数量：", features[5])
+        st.write("船票价格：", features[6])
+        st.write("登船港口：", features[7])
     
     if prediction[0] == 1:
         st.success("预测结果：乘客生还")
