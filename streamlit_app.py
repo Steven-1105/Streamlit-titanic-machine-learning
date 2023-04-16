@@ -83,7 +83,7 @@ def train_model(data):
 
 # Créer l'interface utilisateur de l'application
 def app_ui():
-    st.sidebar.markdown()(content[selected_language]["sidebar_1"])
+    st.sidebar.markdown(content[selected_language]"sidebar_1")
     st.sidebar.title(content[selected_language]["sidebar_2"])
     st.sidebar.title(content[selected_language]["sidebar_3"])
     st.sidebar.title(content[selected_language]["sidebar_4"])
