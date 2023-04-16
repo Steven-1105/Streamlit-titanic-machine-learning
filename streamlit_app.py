@@ -9,16 +9,15 @@ from sklearn.impute import SimpleImputer
 @st.cache
 def load_data():
     data = pd.read_csv('train_fini.csv')
+    # 处理缺失值
+    imputer = SimpleImputer(strategy='median')
+    imputer.fit(data)
+    data = pd.DataFrame(imputer.transform(data), columns=data.columns)
     return data
 
 # 训练模型
 @st.cache
 def train_model(data):
-    # 处理缺失值
-    imputer = SimpleImputer(strategy='median')
-    imputer.fit(data)
-    data = pd.DataFrame(imputer.transform(data), columns=data.columns)
-    
     X = data.drop(['Survived'], axis=1)
     y = data['Survived']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
