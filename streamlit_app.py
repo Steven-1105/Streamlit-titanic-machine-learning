@@ -22,11 +22,6 @@ def preprocess_data(data):
     le = LabelEncoder()
     data['Sex'] = le.fit_transform(data['Sex'])
     data['Embarked'] = le.fit_transform(data['Embarked'])
-
-    
-    #Fare
-    data.loc[data.Fare.isna(), 'Fare'] = 50.0
-    data['Fare'] = (data['Fare']-data['Fare'].mean())/data['Fare'].std()
     
     return data
 
