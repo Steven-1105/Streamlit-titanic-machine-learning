@@ -3,21 +3,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from sklearn.impute import SimpleImputer
 
 # 加载数据集
 @st.cache_resource
 def load_data():
-    data = pd.read_csv('train_fini.csv')
-    # 处理缺失值
-    # imputer = SimpleImputer(strategy='median')
-    # imputer.fit(data)
-    # data = pd.DataFrame(imputer.transform(data), columns=data.columns)
+    data = pd.read_csv("train_fini.csv")
     return data
 
 def preprocess_data(data):
+    # 删除无关特征
+    data = data.drop(['Name', 'Ticket', 'Cabin'], axis=1)
+    
     # 缺失值处理
     data['Age'].fillna(data['Age'].median(), inplace=True)
     data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
@@ -27,52 +24,18 @@ def preprocess_data(data):
     data['Sex'] = le.fit_transform(data['Sex'])
     data['Embarked'] = le.fit_transform(data['Embarked'])
     
-        #Sex
-    data.loc[data.Sex=="male",'Sex']='0'
-    data.loc[data.Sex=="female",'Sex']='1'
-    data.loc[data.Sex.isna(),'Sex']='0'
-    
-    #Embarked
-    data.loc[data.Embarked=="C",'Embarked']='1'
-    data.loc[data.Embarked=="S",'Embarked']='2'
-    data.loc[data.Embarked.isna(),'Embarked']='2'
-    data.loc[data.Embarked=="Q",'Embarked']='3'
-    
-    
-    # 进行数据清洗，把内容转换成与train一样的格式
-    imputer = SimpleImputer(strategy='median')
-    imputer.fit(data[['Age']])
-    data['Age'] = imputer.transform(data[['Age']])
-    
-    imputer = SimpleImputer(strategy='median')
-    imputer.fit(data[['Age']])
-    data['Age'] = imputer.transform(data[['Age']])
-    
-    # Age
-    data.loc[data.Age.isna(),'Age']= 20.0
-    #features['Age'] = features['Age'].fillna(features['Age'].median())
-    data['Age']=(data['Age']-data['Age'].mean())/data['Age'].std()
-
-    #Fare
-    data.loc[data.Fare.isna(), 'Fare'] = 50.0
-    data['Fare'] = data['Fare'].fillna(data['Fare'].median())
-    data['Fare'] = (data['Fare']-data['Fare'].mean())/data['Fare'].std()
-    
     return data
 
 
 
-
 # 训练模型
-@st.cache_resource
 def train_model(data):
-    X = data.drop(['Survived'], axis=1)
-    y = data['Survived']
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
-    # model = RandomForestClassifier(n_estimators=160,max_depth=13)
-    # model.fit(X_train,y_train)
+    X = data.drop("Survived", axis=1)
+    y = data["Survived"]
+    
     model = RandomForestClassifier()
     model.fit(X, y)
+    
     return model
 
 # 创建应用程序UI
@@ -109,7 +72,7 @@ def app_ui():
     features = preprocess_data(features)
     
     # 进行预测
-    prediction = model.predict(features)[0]
+    prediction = model.predict(features)
 
     # 显示预测结果
     if st.button("预测"):
