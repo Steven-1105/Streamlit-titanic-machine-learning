@@ -13,11 +13,16 @@ content = {
         "image": "Sinking of the Titanic",
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",
-        "sidebar_1": "Sibsp: the total number of the passengers' siblings and spouse",
-        "sidebar_2": "Parch: the total number of the passenger's parents and children",
-        "sidebar_3": "C = Cherbourg",
-        "sidebar_4": "Q = Queenstown",
-        "sidebar_5": "S = Southampton",
+        
+        "sidebar_1": """ **Pclass (Passenger Class)** is the socio-economic status of the passenger and it is a categorical ordinal feature which has 3 unique values (1, 2 or 3):
+                        - **1 = Upper Class**
+                        - **2 = Middle Class**
+                        - **3 = Lower Class** """,
+        "sidebar_2": "Sibsp: the total number of the passengers' siblings and spouse",
+        "sidebar_3": "Parch: the total number of the passenger's parents and children",
+        "sidebar_4": "C = Cherbourg",
+        "sidebar_5": "Q = Queenstown",
+        "sidebar_6": "S = Southampton",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -25,11 +30,15 @@ content = {
         "image": "Naufrage du Titanic",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
-        "sidebar_1": "Sibsp: le nombre total des frères et sœurs et du conjoint du passager",
-        "sidebar_2": "Parch: le nombre total de parents et d'enfants du passager\n",
-        "sidebar_3": "C = Cherbourg",
-        "sidebar_4": "Q = Queenstown",
-        "sidebar_5": "S = Southampton",
+        "sidebar_1" : """ **Pclass (Passenger Class)** est le statut socio-économique du passager et il s'agit d'une caractéristique ordinale catégorique qui a 3 valeurs uniques (1, 2 ou 3) :
+                        - **1 = classe supérieure**
+                        - **2 = classe moyenne**
+                        - **3 = classe inférieure** """,
+        "sidebar_2": "Sibsp: le nombre total des frères et sœurs et du conjoint du passager",
+        "sidebar_3": "Parch: le nombre total de parents et d'enfants du passager\n",
+        "sidebar_4": "C = Cherbourg",
+        "sidebar_5": "Q = Queenstown",
+        "sidebar_6": "S = Southampton",
     },
 }
 
@@ -74,11 +83,12 @@ def train_model(data):
 
 # Créer l'interface utilisateur de l'application
 def app_ui():
-    st.sidebar.title(content[selected_language]["sidebar_1"])
+    st.sidebar.markdown()(content[selected_language]["sidebar_1"])
     st.sidebar.title(content[selected_language]["sidebar_2"])
     st.sidebar.title(content[selected_language]["sidebar_3"])
     st.sidebar.title(content[selected_language]["sidebar_4"])
     st.sidebar.title(content[selected_language]["sidebar_5"])
+    st.sidebar.title(content[selected_language]["sidebar_6"])
     st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
