@@ -9,4 +9,3 @@ sklearn.ensemble
 sklearn.model_selection
 sklearn.metrics
 scikit-learn
-from sklearn.ensemble import RandomForestClassifier
