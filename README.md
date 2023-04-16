@@ -22,3 +22,7 @@ In this porjet, we will have access to two similar datasets that include passeng
 - test.csv dataset contains similar information but does not disclose the “ground truth” for each passenger. We will have to find the best models to predict these outcomes with a maximum success rate.
 We will use all the data available in the 'train.csv' file to predict whether the other 418 passengers on board (found in test.csv) survived.
 ### You may find more information about the Kaggle challenge here: https://www.kaggle.com/competitions/titanic/overview
+
+
+## Our using model : Random Forest
+Random Forest is an ensemble Decision Trees fed with random sample (with replacement) of the training set and random set of features.
