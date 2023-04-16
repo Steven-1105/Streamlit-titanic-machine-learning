@@ -1,13 +1,11 @@
 # 导入必要的库和数据集
 from collections import namedtuple
 import altair as alt
-import math
 import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 import seaborn as sns
-from PIL import Image
 
 # 加载数据集
 @st.cache
