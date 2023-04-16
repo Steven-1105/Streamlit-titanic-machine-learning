@@ -1,12 +1,9 @@
 # 导入必要的库和数据集
-from collections import namedtuple
-import altair as alt
 import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
-import seaborn as sns
 
 # 加载数据集
 @st.cache
