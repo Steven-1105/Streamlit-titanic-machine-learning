@@ -78,7 +78,7 @@ def app_ui():
     features = preprocess_data(features,train)
     
     # 进行预测
-    prediction = model.predict(features)
+    #prediction = model.predict(features)
     
     # 显示预测结果
     if st.button("预测"):
