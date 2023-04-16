@@ -1,4 +1,4 @@
-# 导入必要的库和数据集
+# Importer les bibliothèques
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-# 加载数据集
+# Chargement de train 
 @st.cache_resource
 def load_data():
     data = pd.read_csv("train_fini.csv")
@@ -35,7 +35,7 @@ def preprocess_data(test):
 
 
 
-# 训练模型
+# entraîner le modèle
 def train_model(data):
     X = data.drop("Survived", axis=1)
     y = data["Survived"]
@@ -44,21 +44,21 @@ def train_model(data):
     model.fit(X_train,y_train)
     return model
 
-# 创建应用程序UI
+# Créer l'interface utilisateur de l'application
 def app_ui():
-    st.title('Titanic 生还预测')
-    st.markdown('请输入以下信息以预测您的生还结果。')
+    st.title("Prédiction de survie d'un passager personnalisé au Titanic")
+    st.markdown('Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager.')
 
-    # 加载数据集
+    # Chargement de données
     train = load_data()
     test = pd.read_csv("Data_from_Kaggle/test.csv")
     features_drop=['Name','Ticket','Cabin','PassengerId']
     test=test.drop(features_drop, axis=1)
     
-    # 训练模型
+    # entraîner le modèle
     model = train_model(train)
 
-    # 添加输入组件
+    # définir les données de ce passager
     pclass = st.selectbox('船票等级', [1, 2, 3])
     sex = st.selectbox('性别', ['male', 'female'])
     age = st.slider('年龄', 0, 100, 25)
@@ -67,7 +67,7 @@ def app_ui():
     fare = st.slider("船票价格", 0.0, 600.0, 50.0)
     embarked = st.selectbox('登船港口', ['C', 'Q', 'S'])
 
-    # 创建一个特征向量
+    # créer un tableau de données de ce passager
     features = pd.DataFrame([
         {'Pclass': pclass,
          'Sex': sex,
@@ -78,31 +78,30 @@ def app_ui():
          'Embarked': embarked}
     ])
     
+    # concaténation de test avec les données de ce passager
     all_passengers = pd.concat([test, features])
     all_passengers = preprocess_data(all_passengers)
     
-    # 进行预测
+    # faire la prédiction avec le Random Forest
     prediction = model.predict(all_passengers)
     last_prediction = prediction[-1]
     
-    # 显示预测结果
-    if st.button("预测"):
-        st.write("当前乘客信息：")
-        st.write("船票等级：", features['Pclass'][0])
-        st.write("性别：", features['Sex'][0])
-        st.write("train的年龄中位数：", train['Age'].mean())
-        st.write("年龄：", features['Age'][0])
-        st.write("兄弟姐妹/配偶数量：", features['SibSp'][0])
-        st.write("父母/子女数量：", features['Parch'][0])
-        st.write("train的船票中位数：", train['Fare'].mean())
-        st.write("船票价格：", features['Fare'][0])
-        st.write("登船港口：", features['Embarked'][0])
+    # Afficher le résultat prévu
+    if st.button("Faire la prédiction"):
+        st.write("Voici les données de ce passager")
+        st.write("Pclass：", features['Pclass'][0])
+        st.write("Sex：", features['Sex'][0])
+        st.write("Age：", features['Age'][0])
+        st.write("Sibsp：", features['SibSp'][0])
+        st.write("Parch：", features['Parch'][0])
+        st.write("Fare：", features['Fare'][0])
+        st.write("Embarked：", features['Embarked'][0])
     
     if last_prediction == 1:
-        st.success("预测结果：乘客生还")
+        st.success("Résultat：survivant")
     else:
-        st.error("预测结果：乘客未生还")
+        st.error("Résultat：non survivant")
 
-# 运行应用程序
+# démarrer le programme
 if __name__ == '__main__':
     app_ui()
