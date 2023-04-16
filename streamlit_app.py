@@ -59,13 +59,13 @@ def app_ui():
     model = train_model(train)
 
     # définir les données de ce passager
-    pclass = st.selectbox('船票等级', [1, 2, 3])
-    sex = st.selectbox('性别', ['male', 'female'])
-    age = st.slider('年龄', 0, 100, 25)
-    sibsp = st.slider('兄弟姐妹/配偶数量', 0, 8, 0)
-    parch = st.slider("父母/子女数量", 0, 10, 0)
-    fare = st.slider("船票价格", 0.0, 600.0, 50.0)
-    embarked = st.selectbox('登船港口', ['C', 'Q', 'S'])
+    pclass = st.selectbox('Pclass', [1, 2, 3])
+    sex = st.selectbox('Sex', ['male', 'female'])
+    age = st.slider('Age', 0, 100, 25)
+    sibsp = st.slider('Sibsp', 0, 8, 0)
+    parch = st.slider("Parch", 0, 10, 0)
+    fare = st.slider("Fare", 0.0, 600.0, 50.0)
+    embarked = st.selectbox('Embarked', ['C', 'Q', 'S'])
 
     # créer un tableau de données de ce passager
     features = pd.DataFrame([
