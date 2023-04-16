@@ -10,12 +10,14 @@ content = {
     "english": {
         "title": "Predicting the survival results of personalised Titanic passenger",
         "question": "Please define the following information to predict the survival result of this passenger:",
+        "image": "Sinking of the Titanic",
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
         "question": "Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager:",
+        "image": "Naufrage du Titanic",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
     },
@@ -63,7 +65,7 @@ def train_model(data):
 # Créer l'interface utilisateur de l'application
 def app_ui():
     st.title(content[selected_language]["title"])
-    st.image("images/100_anniversary_titanic.jpg", caption="Naufrage du Titanic")
+    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Projet L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
