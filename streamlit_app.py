@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 # 加载数据集
 @st.cache_resource
 def load_data():
-    data = pd.read_csv("train_fini.csv")
+    data = pd.read_csv("Data_from_Kaggle/train.csv")
     return data
 
 def preprocess_data(data):
