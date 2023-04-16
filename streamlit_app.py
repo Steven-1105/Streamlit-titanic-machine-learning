@@ -43,7 +43,7 @@ def app_ui():
     age = st.slider('年龄', 0, 100, 25)
     sibsp = st.slider('兄弟姐妹/配偶数量', 0, 8, 0)
     parch = st.slider('父母/子女数量', 0, 6, 0)
-    fare = st.slider('船票费用', 0, 400, 10)
+    fare = st.slider('船票费用', 0, 100, 10)
     embarked = st.radio('登船港口', ['C', 'Q', 'S'])
 
     # 创建一个特征向量
@@ -70,7 +70,6 @@ def app_ui():
     #Embarked
     features.loc[features.Embarked=="C",'Embarked']='1'
     features.loc[features.Embarked=="S",'Embarked']='2'
-    features.loc[features.Embarked.isna(),'Embarked']='2'
     features.loc[features.Embarked=="Q",'Embarked']='3'
 
     #Fare
