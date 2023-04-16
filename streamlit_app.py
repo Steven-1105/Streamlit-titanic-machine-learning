@@ -47,7 +47,7 @@ def train_model(data):
 # Créer l'interface utilisateur de l'application
 def app_ui():
     st.title("Prédiction du résultat de survie d'un passager personnalisé au Titanic")
-    st.image("100_anniversary_titanic.jpg", caption="Naufrage du Titanic")
+    st.image("images/100_anniversary_titanic.jpg", caption="Naufrage du Titanic")
     st.markdown('Projet L2I1: Machine Learning from Disaster')
     st.markdown('Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager.')
 
