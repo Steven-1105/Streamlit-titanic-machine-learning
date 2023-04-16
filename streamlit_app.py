@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
 
 # 加载数据集
 @st.cache_resource
@@ -11,27 +11,18 @@ def load_data():
     data = pd.read_csv("train_fini.csv")
     return data
 
-def preprocess_data(test):
+def preprocess_data(data):
     
-    test['Age'] = test['Age'].fillna(test['Age'].median())
-    test['Age']=(test['Age']-test['Age'].mean())/test['Age'].std()
-
-
-    #Sex
-    test.loc[test.Sex=="male",'Sex']='0'
-    test.loc[test.Sex=="female",'Sex']='1'
-
-    #Embarked
-    test.loc[test.Embarked=="C",'Embarked']='1'
-    test.loc[test.Embarked=="S",'Embarked']='2'
-    test.loc[test.Embarked.isna(),'Embarked']='2'
-    test.loc[test.Embarked=="Q",'Embarked']='3'
-
-    #Fare
-    test['Fare'] = test['Fare'].fillna(test['Fare'].median())
-    test['Fare']=(test['Fare']-test['Fare'].mean())/test['Fare'].std()
+    # 缺失值处理
+    data['Age'].fillna(data['Age'].median(), inplace=True)
+    data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
     
-    return test
+    # 类别特征编码
+    le = LabelEncoder()
+    data['Sex'] = le.fit_transform(data['Sex'])
+    data['Embarked'] = le.fit_transform(data['Embarked'])
+    
+    return data
 
 
 
@@ -39,8 +30,9 @@ def preprocess_data(test):
 def train_model(data):
     X = data.drop("Survived", axis=1)
     y = data["Survived"]
-    model = RandomForestClassifier()
-    model.fit(X,y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
+    model = RandomForestClassifier(n_estimators=160,max_depth=13)
+    model.fit(X_train,y_train)
     return model
 
 # 创建应用程序UI
