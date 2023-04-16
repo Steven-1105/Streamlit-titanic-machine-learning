@@ -39,9 +39,8 @@ def preprocess_data(test):
 def train_model(data):
     X = data.drop("Survived", axis=1)
     y = data["Survived"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
     model = RandomForestClassifier()
-    model.fit(X_train,y_train)
+    model.fit(X,y)
     return model
 
 # 创建应用程序UI
