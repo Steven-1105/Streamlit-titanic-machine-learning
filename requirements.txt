@@ -3,9 +3,9 @@ pandas
 scikit-learn
 streamlit
 numpy
-matplotlib
-seaborn
-plotly
 sklearn.ensemble
 sklearn.model_selection
 sklearn.metrics
+matplotlib
+seaborn
+plotly
