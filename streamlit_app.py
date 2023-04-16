@@ -5,6 +5,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
+from sklearn.impute import SimpleImputer
 import seaborn as sns
 
 # 加载数据集
@@ -16,6 +17,11 @@ def load_data():
 # 训练模型
 @st.cache
 def train_model(data):
+    # 处理缺失值
+    imputer = SimpleImputer(strategy='median')
+    imputer.fit(data)
+    data = pd.DataFrame(imputer.transform(data), columns=data.columns)
+    
     X = data.drop(['Survived'], axis=1)
     y = data['Survived']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
