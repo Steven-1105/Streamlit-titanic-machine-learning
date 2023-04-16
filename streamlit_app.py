@@ -15,6 +15,9 @@ content = {
         "result_2": "Result：non-surviving",
         "sidebar_1": "Sibsp: the total number of the passengers' siblings and spouse",
         "sidebar_2": "Parch: the total number of the passenger's parents and children",
+        "sidebar_3": "C = Cherbourg",
+        "sidebar_4": "Q = Queenstown",
+        "sidebar_5": "S = Southampton",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -24,6 +27,9 @@ content = {
         "result_2": "Résultat：non survivant",
         "sidebar_1": "Sibsp: le nombre total des frères et sœurs et du conjoint du passager",
         "sidebar_2": "Parch: le nombre total de parents et d'enfants du passager\n",
+        "sidebar_3": "C = Cherbourg",
+        "sidebar_4": "Q = Queenstown",
+        "sidebar_5": "S = Southampton",
     },
 }
 
@@ -70,6 +76,9 @@ def train_model(data):
 def app_ui():
     st.sidebar.title(content[selected_language]["sidebar_1"])
     st.sidebar.title(content[selected_language]["sidebar_2"])
+    st.sidebar.title(content[selected_language]["sidebar_3"])
+    st.sidebar.title(content[selected_language]["sidebar_4"])
+    st.sidebar.title(content[selected_language]["sidebar_5"])
     st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Projet L2I1: Machine Learning from Disaster')
