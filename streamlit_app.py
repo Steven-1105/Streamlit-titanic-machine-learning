@@ -119,6 +119,4 @@ if __name__ == '__main__':
         options=["english", "french"],
         format_func=lambda x: "English" if x == "english" else "Français",
     )
-    # 根据所选语言显示标题
-    st.title(content[selected_language]["title"])
     app_ui()
