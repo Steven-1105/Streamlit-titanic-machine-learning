@@ -22,14 +22,7 @@ def preprocess_data(data):
     le = LabelEncoder()
     data['Sex'] = le.fit_transform(data['Sex'])
     data['Embarked'] = le.fit_transform(data['Embarked'])
-    
-   
-    
-    #Embarked
-    data.loc[data.Embarked=="C",'Embarked']='1'
-    data.loc[data.Embarked=="S",'Embarked']='2'
-    data.loc[data.Embarked.isna(),'Embarked']='2'
-    data.loc[data.Embarked=="Q",'Embarked']='3'
+
     
     #Fare
     data.loc[data.Fare.isna(), 'Fare'] = 50.0
