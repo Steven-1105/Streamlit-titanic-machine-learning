@@ -57,6 +57,9 @@ def app_ui():
     })
     
     # 进行数据清洗，把内容转换成与train一样的格式
+    imputer = SimpleImputer(strategy='median')
+    imputer.fit(features)
+    features = pd.DataFrame(imputer.transform(features), columns=features.columns)
     # Age
     features.loc[features.Age.isna(),'Age']= 20.0
     #features['Age'] = features['Age'].fillna(features['Age'].median())
