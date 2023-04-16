@@ -71,7 +71,7 @@ def app_ui():
     #Embarked
     features.loc[features.Embarked=="C",'Embarked']='1'
     features.loc[features.Embarked=="S",'Embarked']='2'
-    test.loc[test.Embarked.isna(),'Embarked']='2'
+    features.loc[features.Embarked.isna(),'Embarked']='2'
     features.loc[features.Embarked=="Q",'Embarked']='3'
 
     #Fare
