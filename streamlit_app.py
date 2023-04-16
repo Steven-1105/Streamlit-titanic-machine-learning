@@ -121,9 +121,4 @@ if __name__ == '__main__':
     )
     # 根据所选语言显示标题
     st.title(content[selected_language]["title"])
-
-    # 根据所选语言显示其他文本内容
-    st.write(content[selected_language]["question"])
-    st.write(content[selected_language]["result_1"])
-    st.write(content[selected_language]["result_2"])
     app_ui()
