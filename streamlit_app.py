@@ -8,16 +8,16 @@ from sklearn.model_selection import train_test_split
 # 定义英文和法语文本内容
 content = {
     "english": {
-        "title": "Language Selection in Streamlit",
-        "language_selection": "Please select a language:",
-        "option_english": "English",
-        "option_french": "French",
+        "title": "Predicting the survival results of personalised Titanic passenger",
+        "question": "Please define the following information to predict the survival result of this passenger:",
+        "result_1": "Result：surviving",
+        "result_2": "Result：non-surviving",
     },
     "french": {
-        "title": "Sélection de la langue dans Streamlit",
-        "language_selection": "Veuillez sélectionner une langue:",
-        "option_english": "Anglais",
-        "option_french": "Français",
+        "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
+        "question": "Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager:",
+        "result_1": "Résultat：survivant",
+        "result_2": "Résultat：non survivant",
     },
 }
 
@@ -62,10 +62,10 @@ def train_model(data):
 
 # Créer l'interface utilisateur de l'application
 def app_ui():
-    st.title("Prédiction du résultat de survie d'un passager personnalisé au Titanic")
+    st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption="Naufrage du Titanic")
     st.markdown('Projet L2I1: Machine Learning from Disaster')
-    st.markdown('Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager.')
+    st.markdown(content[selected_language]["question"])
 
     # Chargement de données
     train = load_data()
@@ -107,9 +107,9 @@ def app_ui():
     # Afficher le résultat prévu
     
     if last_prediction == 1:
-        st.success("Résultat：survivant")
+        st.success(content[selected_language]["result_1"])
     else:
-        st.error("Résultat：non survivant")
+        st.error(content[selected_language]["result_2"])
 
 # démarrer le programme
 if __name__ == '__main__':
@@ -123,7 +123,6 @@ if __name__ == '__main__':
     st.title(content[selected_language]["title"])
 
     # 根据所选语言显示其他文本内容
-    st.write(content[selected_language]["language_selection"])
-    st.write(content[selected_language]["option_english"])
-    st.write(content[selected_language]["option_french"])
+    st.write(content[selected_language]["question"])
+    st.write(content[selected_language]["result"])
     app_ui()
