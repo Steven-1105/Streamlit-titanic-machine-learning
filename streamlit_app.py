@@ -91,9 +91,11 @@ def app_ui():
         st.write("当前乘客信息：")
         st.write("船票等级：", features['Pclass'][0])
         st.write("性别：", features['Sex'][0])
+        st.write("train的年龄中位数：", train['Age'].mean())
         st.write("年龄：", features['Age'][0])
         st.write("兄弟姐妹/配偶数量：", features['SibSp'][0])
         st.write("父母/子女数量：", features['Parch'][0])
+        st.write("train的船票中位数：", train['Fare'].mean())
         st.write("船票价格：", features['Fare'][0])
         st.write("登船港口：", features['Embarked'][0])
     
