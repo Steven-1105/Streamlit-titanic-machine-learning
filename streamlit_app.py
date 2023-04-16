@@ -58,22 +58,26 @@ def app_ui():
     
     # 进行数据清洗，把内容转换成与train一样的格式
     # Age
-    features['Age'] = features['Age'].fillna(features['Age'].median())
+    features.loc[features.Age.isna(),'Age']= 20.0
+    #features['Age'] = features['Age'].fillna(features['Age'].median())
     features['Age']=(features['Age']-features['Age'].mean())/features['Age'].std()
 
 
     #Sex
     features.loc[features.Sex=="male",'Sex']='0'
     features.loc[features.Sex=="female",'Sex']='1'
+    features.loc[features.Sex.isna(),'Sex']='0'
 
     #Embarked
     features.loc[features.Embarked=="C",'Embarked']='1'
     features.loc[features.Embarked=="S",'Embarked']='2'
+    test.loc[test.Embarked.isna(),'Embarked']='2'
     features.loc[features.Embarked=="Q",'Embarked']='3'
 
     #Fare
+    features.loc[features.Fare.isna(), 'Fare'] = 50.0
     features['Fare'] = features['Fare'].fillna(features['Fare'].median())
-    features['Fare']=(features['Fare']-features['Fare'].mean())/features['Fare'].std()
+    features['Fare'] = (features['Fare']-features['Fare'].mean())/features['Fare'].std()
 
     
     # 进行预测
