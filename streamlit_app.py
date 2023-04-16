@@ -23,9 +23,7 @@ def preprocess_data(data):
     data['Sex'] = le.fit_transform(data['Sex'])
     data['Embarked'] = le.fit_transform(data['Embarked'])
     
-    #Age
-    data['Age'] = data['Age'].fillna(data['Age'].median())
-    data['Age'] = (data['Age']-data['Age'].mean())/data['Age'].std()
+   
     
     #Sex
     data.loc[data.Sex=="male",'Sex']='0'
