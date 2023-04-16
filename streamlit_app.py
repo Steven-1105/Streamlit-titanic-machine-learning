@@ -98,7 +98,7 @@ def app_ui():
         st.write("船票价格：", features['Fare'][0])
         st.write("登船港口：", features['Embarked'][0])
     
-    if last_prediction[0] == 1:
+    if last_prediction == 1:
         st.success("预测结果：乘客生还")
     else:
         st.error("预测结果：乘客未生还")
