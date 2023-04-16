@@ -14,10 +14,10 @@ content = {
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",
         
-        "sidebar_1": """ **Pclass (Passenger Class)** is the socio-economic status of the passenger and it is a categorical ordinal feature which has 3 unique values (1, 2 or 3):
+        "sidebar_1": (""" **Pclass (Passenger Class)** is the socio-economic status of the passenger and it is a categorical ordinal feature which has 3 unique values (1, 2 or 3):
                         - **1 = Upper Class**
                         - **2 = Middle Class**
-                        - **3 = Lower Class** """,
+                        - **3 = Lower Class** """),
         "sidebar_2": "Sibsp: the total number of the passengers' siblings and spouse",
         "sidebar_3": "Parch: the total number of the passenger's parents and children",
         "sidebar_4": "C = Cherbourg",
@@ -30,10 +30,10 @@ content = {
         "image": "Naufrage du Titanic",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
-        "sidebar_1" : """ **Pclass (Passenger Class)** est le statut socio-économique du passager et il s'agit d'une caractéristique ordinale catégorique qui a 3 valeurs uniques (1, 2 ou 3) :
+        "sidebar_1" : (""" **Pclass (Passenger Class)** est le statut socio-économique du passager et il s'agit d'une caractéristique ordinale catégorique qui a 3 valeurs uniques (1, 2 ou 3) :
                         - **1 = classe supérieure**
                         - **2 = classe moyenne**
-                        - **3 = classe inférieure** """,
+                        - **3 = classe inférieure** """),
         "sidebar_2": "Sibsp: le nombre total des frères et sœurs et du conjoint du passager",
         "sidebar_3": "Parch: le nombre total de parents et d'enfants du passager\n",
         "sidebar_4": "C = Cherbourg",
