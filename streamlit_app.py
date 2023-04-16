@@ -5,13 +5,12 @@ import streamlit as st
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
 import seaborn as sns
 
 # 加载数据集
 @st.cache
 def load_data():
-    data = pd.read_csv('train.csv')
+    data = pd.read_csv('train_.csv')
     return data
 
 # 训练模型
