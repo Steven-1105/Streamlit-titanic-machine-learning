@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.impute import SimpleImputer
 
 # 加载数据集
-@st.cache
+@st.cache_resource
 def load_data():
     data = pd.read_csv('train_fini.csv')
     # 处理缺失值
@@ -16,7 +16,7 @@ def load_data():
     return data
 
 # 训练模型
-@st.cache
+@st.cache_resource
 def train_model(data):
     X = data.drop(['Survived'], axis=1)
     y = data['Survived']
@@ -56,20 +56,21 @@ def app_ui():
         'Embarked': [embarked]
     })
     
-    # 进行数据清洗，把内容转换成与train一样的格式
-    imputer = SimpleImputer(strategy='median')
-    imputer.fit(features)
-    features = pd.DataFrame(imputer.transform(features), columns=features.columns)
-    # Age
-    features.loc[features.Age.isna(),'Age']= 20.0
-    #features['Age'] = features['Age'].fillna(features['Age'].median())
-    features['Age']=(features['Age']-features['Age'].mean())/features['Age'].std()
-
-
+    
     #Sex
     features.loc[features.Sex=="male",'Sex']='0'
     features.loc[features.Sex=="female",'Sex']='1'
     features.loc[features.Sex.isna(),'Sex']='0'
+    
+    # 进行数据清洗，把内容转换成与train一样的格式
+    imputer = SimpleImputer(strategy='median')
+    imputer.fit(features)
+    features = pd.DataFrame(imputer.transform(features), columns=features.columns)
+    
+    # Age
+    features.loc[features.Age.isna(),'Age']= 20.0
+    #features['Age'] = features['Age'].fillna(features['Age'].median())
+    features['Age']=(features['Age']-features['Age'].mean())/features['Age'].std()
 
     #Embarked
     features.loc[features.Embarked=="C",'Embarked']='1'
