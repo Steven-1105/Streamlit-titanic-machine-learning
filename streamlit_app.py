@@ -38,16 +38,43 @@ def app_ui():
     pclass = st.selectbox('船票等级', [1, 2, 3])
     sex = st.selectbox('性别', ['male', 'female'])
     age = st.slider('年龄', 0, 100, 25)
-    fare = st.slider('船票费用', 0, 100, 10)
+    sibsp = st.slider('兄弟姐妹/配偶数量', 0, 8, 0)
+    parch = st.slider('父母/子女数量', 0, 6, 0)
+    fare = st.slider('船票费用', 0, 400, 10)
+    embarked = st.radio('登船港口', ['C', 'Q', 'S'])
 
     # 创建一个特征向量
     features = pd.DataFrame({
         'Pclass': [pclass],
         'Sex': [sex],
         'Age': [age],
-        'Fare': [fare]
+        'SibSp': [sibsp],
+        'Parch': [parch],
+        'Fare': [fare],
+        'Embarked': [embarked]
     })
+    
+    # 进行数据清洗，把内容转换成与train一样的格式
+    # Age
+    features['Age'] = features['Age'].fillna(features['Age'].median())
+    features['Age']=(features['Age']-features['Age'].mean())/features['Age'].std()
 
+
+    #Sex
+    features.loc[features.Sex=="male",'Sex']='0'
+    features.loc[features.Sex=="female",'Sex']='1'
+
+    #Embarked
+    features.loc[features.Embarked=="C",'Embarked']='1'
+    features.loc[features.Embarked=="S",'Embarked']='2'
+    features.loc[features.Embarked.isna(),'Embarked']='2'
+    features.loc[features.Embarked=="Q",'Embarked']='3'
+
+    #Fare
+    features['Fare'] = features['Fare'].fillna(features['Fare'].median())
+    features['Fare']=(features['Fare']-features['Fare'].mean())/features['Fare'].std()
+
+    
     # 进行预测
     prediction = model.predict(features)[0]
 
