@@ -70,8 +70,12 @@ def app_ui():
     
     # 进行数据清洗，把内容转换成与train一样的格式
     imputer = SimpleImputer(strategy='median')
-    imputer.fit(features)
-    features = pd.DataFrame(imputer.transform(features), columns=features.columns)
+    imputer.fit(data[['Age']])
+    features['Age'] = imputer.transform(features[['Age']])
+    
+    imputer = SimpleImputer(strategy='median')
+    imputer.fit(data[['Age']])
+    features['Age'] = imputer.transform(features[['Age']])
     
     # Age
     features.loc[features.Age.isna(),'Age']= 20.0
