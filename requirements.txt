@@ -1,5 +1,6 @@
 altair
 pandas
+scikit-learn
 streamlit
 numpy
 matplotlib
@@ -8,4 +9,3 @@ plotly
 sklearn.ensemble
 sklearn.model_selection
 sklearn.metrics
-scikit-learn
