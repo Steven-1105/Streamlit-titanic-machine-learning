@@ -62,6 +62,12 @@ def app_ui():
     features.loc[features.Sex=="female",'Sex']='1'
     features.loc[features.Sex.isna(),'Sex']='0'
     
+    #Embarked
+    features.loc[features.Embarked=="C",'Embarked']='1'
+    features.loc[features.Embarked=="S",'Embarked']='2'
+    features.loc[features.Embarked.isna(),'Embarked']='2'
+    features.loc[features.Embarked=="Q",'Embarked']='3'
+    
     # 进行数据清洗，把内容转换成与train一样的格式
     imputer = SimpleImputer(strategy='median')
     imputer.fit(features)
@@ -71,12 +77,6 @@ def app_ui():
     features.loc[features.Age.isna(),'Age']= 20.0
     #features['Age'] = features['Age'].fillna(features['Age'].median())
     features['Age']=(features['Age']-features['Age'].mean())/features['Age'].std()
-
-    #Embarked
-    features.loc[features.Embarked=="C",'Embarked']='1'
-    features.loc[features.Embarked=="S",'Embarked']='2'
-    features.loc[features.Embarked.isna(),'Embarked']='2'
-    features.loc[features.Embarked=="Q",'Embarked']='3'
 
     #Fare
     features.loc[features.Fare.isna(), 'Fare'] = 50.0
