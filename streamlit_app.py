@@ -81,7 +81,7 @@ def app_ui():
     st.sidebar.title(content[selected_language]["sidebar_5"])
     st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
-    st.markdown('Projet L2I1: Machine Learning from Disaster')
+    st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
     # Chargement de données
