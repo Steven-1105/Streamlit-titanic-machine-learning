@@ -15,7 +15,10 @@ def load_data():
 def preprocess_data(data,train):
     #Age
     data['Age'] = data['Age'].fillna(train['Age'].median())
-    data['Age'] = (data['Age']-train['Age'].mean())/data['Age'].std()
+    if data['Age'].std() == 0:
+        data['Age'] = data['Age'] - train['Age'].mean()
+    else:
+        data['Age'] = (data['Age'] - train['Age'].mean()) / data['Age'].std()
     
     #Sex
     data.loc[data.Sex=="male",'Sex']='0'
@@ -29,7 +32,10 @@ def preprocess_data(data,train):
     
     #Fare
     data['Fare'] = data['Fare'].fillna(train['Fare'].median())
-    data['Fare'] = (data['Fare']-train['Fare'].mean())/data['Fare'].std()
+    if data['Fare'].std() == 0:
+        data['Fare'] = data['Fare'] - train['Fare'].mean()
+    else:
+        data['Fare'] = (data['Fare'] - train['Fare'].mean()) / data['Fare'].std()
     
     return data
 
