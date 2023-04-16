@@ -25,11 +25,6 @@ def preprocess_data(data):
     
    
     
-    #Sex
-    data.loc[data.Sex=="male",'Sex']='0'
-    data.loc[data.Sex=="female",'Sex']='1'
-    data.loc[data.Sex.isna(),'Sex']='0'
-    
     #Embarked
     data.loc[data.Embarked=="C",'Embarked']='1'
     data.loc[data.Embarked=="S",'Embarked']='2'
