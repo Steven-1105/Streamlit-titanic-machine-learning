@@ -5,6 +5,22 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
+# 定义英文和法语文本内容
+content = {
+    "english": {
+        "title": "Language Selection in Streamlit",
+        "language_selection": "Please select a language:",
+        "option_english": "English",
+        "option_french": "French",
+    },
+    "french": {
+        "title": "Sélection de la langue dans Streamlit",
+        "language_selection": "Veuillez sélectionner une langue:",
+        "option_english": "Anglais",
+        "option_french": "Français",
+    },
+}
+
 
 # Chargement de train 
 @st.cache_resource
@@ -97,4 +113,17 @@ def app_ui():
 
 # démarrer le programme
 if __name__ == '__main__':
+    # 用户选择语言
+    selected_language = st.sidebar.selectbox(
+        "Select a language / Sélectionnez une langue",
+        options=["english", "french"],
+        format_func=lambda x: "English" if x == "english" else "Français",
+    )
+    # 根据所选语言显示标题
+    st.title(content[selected_language]["title"])
+
+    # 根据所选语言显示其他文本内容
+    st.write(content[selected_language]["language_selection"])
+    st.write(content[selected_language]["option_english"])
+    st.write(content[selected_language]["option_french"])
     app_ui()
