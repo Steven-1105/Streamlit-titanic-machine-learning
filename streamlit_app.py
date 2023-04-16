@@ -43,6 +43,7 @@ def app_ui():
 
     # 加载数据集
     data = load_data()
+    data = preprocess_data(data)
 
     # 训练模型
     model = train_model(data)
