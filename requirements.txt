@@ -1,11 +1,3 @@
-altair
 pandas
 scikit-learn
 streamlit
-numpy
-sklearn.ensemble
-sklearn.model_selection
-sklearn.metrics
-matplotlib
-seaborn
-plotly
