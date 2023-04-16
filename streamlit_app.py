@@ -51,7 +51,7 @@ def app_ui():
 
     # 加载数据集
     train = load_data()
-    test = pd.read_csv("test.csv")
+    test = pd.read_csv("Data_from_Kaggle/test.csv")
     features_drop=['Name','Ticket','Cabin','PassengerId']
     test=test.drop(features_drop, axis=1)
     
