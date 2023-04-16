@@ -12,16 +12,24 @@ def load_data():
     data = pd.read_csv("train_fini.csv")
     return data
 
-def preprocess_data(data):
+def preprocess_data(data,train):
+    #Age
+    data['Age'] = data['Age'].fillna(train['Age'].median())
+    data['Age'] = (data['Age']-train['Age'].mean())/data['Age'].std()
     
-    # 缺失值处理
-    data['Age'].fillna(data['Age'].median(), inplace=True)
-    data['Embarked'].fillna(data['Embarked'].mode()[0], inplace=True)
+    #Sex
+    data.loc[data.Sex=="male",'Sex']='0'
+    data.loc[data.Sex=="female",'Sex']='1'
     
-    # 类别特征编码
-    le = LabelEncoder()
-    data['Sex'] = le.fit_transform(data['Sex'])
-    data['Embarked'] = le.fit_transform(data['Embarked'])
+    #Embarked
+    data.loc[data.Embarked=="C",'Embarked']='1'
+    data.loc[data.Embarked=="S",'Embarked']='2'
+    data.loc[data.Embarked.isna(),'Embarked']='2'
+    data.loc[data.Embarked=="Q",'Embarked']='3'
+    
+    #Fare
+    data['Fare'] = data['Fare'].fillna(train['Fare'].median())
+    data['Fare'] = (data['Fare']-train['Fare'].mean())/data['Fare'].std()
     
     return data
 
@@ -31,8 +39,9 @@ def preprocess_data(data):
 def train_model(data):
     X = data.drop("Survived", axis=1)
     y = data["Survived"]
-    model = RandomForestClassifier()
-    model.fit(X, y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
+    model = RandomForestClassifier(n_estimators=160,max_depth=13)
+    model.fit(X_train,y_train)
     return model
 
 # 创建应用程序UI
@@ -41,10 +50,10 @@ def app_ui():
     st.markdown('请输入以下信息以预测您的生还结果。')
 
     # 加载数据集
-    data = load_data()
+    train = load_data()
 
     # 训练模型
-    model = train_model(data)
+    model = train_model(train)
 
     # 添加输入组件
     pclass = st.selectbox('船票等级', [1, 2, 3])
@@ -66,7 +75,7 @@ def app_ui():
         'Embarked': [embarked]
     })
     
-    features = preprocess_data(features)
+    features = preprocess_data(features,train)
     
     # 进行预测
     prediction = model.predict(features)
