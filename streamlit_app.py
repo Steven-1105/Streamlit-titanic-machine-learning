@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 # 加载数据集
 @st.cache_resource
 def load_data():
-    data = pd.read_csv("Data_from_Kaggle/train.csv")
+    data = pd.read_csv("train_fini.csv")
     return data
 
 def preprocess_data(data):
@@ -31,9 +31,8 @@ def preprocess_data(data):
 def train_model(data):
     X = data.drop("Survived", axis=1)
     y = data["Survived"]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=2)
-    model = RandomForestClassifier(n_estimators=160,max_depth=13)
-    model.fit(X_train,y_train)
+    model = RandomForestClassifier()
+    model.fit(X, y)
     return model
 
 # 创建应用程序UI
@@ -43,7 +42,6 @@ def app_ui():
 
     # 加载数据集
     data = load_data()
-    data = preprocess_data(data)
 
     # 训练模型
     model = train_model(data)
@@ -72,13 +70,21 @@ def app_ui():
     
     # 进行预测
     prediction = model.predict(features)
-
-    # 显示预测结果
-    if st.button("预测"):
-        if prediction[0] == 1:
-            st.success("预测结果：乘客生还")
-        else:
-            st.error("预测结果：乘客未生还")
+# 显示预测结果
+if st.button("预测"):
+    st.write("当前乘客信息：")
+    st.write("船票等级：", pclass)
+    st.write("性别：", sex)
+    st.write("年龄：", age)
+    st.write("兄弟姐妹/配偶数量：", sibsp)
+    st.write("父母/子女数量：", parch)
+    st.write("船票价格：", fare)
+    st.write("登船港口：", embarked)
+    
+    if prediction[0] == 1:
+        st.success("预测结果：乘客生还")
+    else:
+        st.error("预测结果：乘客未生还")
 
 # 运行应用程序
 if __name__ == '__main__':
