@@ -12,8 +12,6 @@ def load_data():
     return data
 
 def preprocess_data(data):
-    # 删除无关特征
-    data = data.drop(['Name', 'Ticket', 'Cabin'], axis=1)
     
     # 缺失值处理
     data['Age'].fillna(data['Age'].median(), inplace=True)
