@@ -13,7 +13,8 @@ content = {
         "image": "Sinking of the Titanic",
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",
-        "sidebar":"Sibsp: the total number of the passengers' siblings and spouse\n Parch: the total number of the passenger's parents and children\n",
+        "sidebar_1": "Sibsp: the total number of the passengers' siblings and spouse",
+        "sidebar_2": "Parch: the total number of the passenger's parents and children",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -21,7 +22,8 @@ content = {
         "image": "Naufrage du Titanic",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
-        "sidebar":"Sibsp: le nombre total des frères et sœurs et du conjoint du passager\n Parch: le nombre total de parents et d'enfants du passager\n",
+        "sidebar_1": "Sibsp: le nombre total des frères et sœurs et du conjoint du passager",
+        "sidebar_2": "Parch: le nombre total de parents et d'enfants du passager\n",
     },
 }
 
@@ -66,7 +68,8 @@ def train_model(data):
 
 # Créer l'interface utilisateur de l'application
 def app_ui():
-    st.sidebar.title(content[selected_language]["sidebar"])
+    st.sidebar.title(content[selected_language]["sidebar_1"])
+    st.sidebar.title(content[selected_language]["sidebar_2"])
     st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Projet L2I1: Machine Learning from Disaster')
