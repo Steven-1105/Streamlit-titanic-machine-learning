@@ -12,7 +12,7 @@ from PIL import Image
 # 加载数据集
 @st.cache
 def load_data():
-    data = pd.read_csv('titanic.csv')
+    data = pd.read_csv('train.csv')
     return data
 
 # 训练模型
