@@ -34,6 +34,7 @@ content = {
         "Prediction":"Would you survive?",
         "title_wiki":"Wiki of our project: Machine Learning from Disaster",
         "About":"About us",
+        "About_1":"to be countinue",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -62,6 +63,7 @@ content = {
         "Prediction":"Survivrez-vous?",
         "title_wiki":"Wiki de notre projet : Machine Learning à partir d'une catastrophe",
         "About":"A propos de nous",
+        "About_1" : "à compléter",
     },
 }
 
@@ -111,6 +113,10 @@ def show_wiki():
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
+# Créer le wiki du projet
+def show_about():
+    st.markdown(content[selected_language]["About_1"])   
+    
 # Créer l'interface utilisateur de l'application
 def show_prediction():
 #     st.sidebar.markdown(content[selected_language]["sidebar_1"])
@@ -183,5 +189,7 @@ if __name__ == '__main__':
     # 根据所选页面显示内容
     if selected_page == "Wiki":
         show_wiki()
+     elif selected_page == content[selected_language]["About"]:
+        show_about()
     elif selected_page == content[selected_language]["Prediction"]:
         show_prediction()
