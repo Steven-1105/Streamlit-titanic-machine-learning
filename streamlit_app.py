@@ -108,23 +108,23 @@ def app_ui():
     model = train_model(train)
 
     # définir les données de ce passager
-    passenger_class = st.selectbox('Pclass', [1, 2, 3])
+    pclass = st.selectbox('Passenger Class', [1, 2, 3])
     sex = st.selectbox('Sex', ['male', 'female'])
     age = st.slider('Age', 0, 100, 25)
-    nomber_siblings_and_spouse = st.slider('Sibsp', 0, 8, 0)
-    nomber_parents_and_children = st.slider("Parch", 0, 10, 0)
-    ticket_price = st.slider("Fare", 0.0, 600.0, 50.0)
-    Port_of_embarkation = st.selectbox('Embarked', ['C', 'Q', 'S'])
+    sibsp = st.slider("total number of the passengers' siblings and spouse", 0, 8, 0)
+    parch = st.slider("total number of the passenger's parents and children", 0, 10, 0)
+    fare = st.slider("Price of ticket", 0.0, 600.0, 50.0)
+    embarked = st.selectbox('Port of embarkation', ['C', 'Q', 'S'])
 
     # créer un tableau de données de ce passager
     features = pd.DataFrame([
-        {'Pclass': Passenger_Class,
+        {'Pclass': pclass,
          'Sex': sex,
          'Age': age,
-         'SibSp': nomber_siblings_and_spouse,
-         'Parch': nomber_parents_and_children,
-         'Fare': ticket_price,
-         'Embarked': Port_of_embarkation}
+         'SibSp': sibsp,
+         'Parch': parch,
+         'Fare': fare,
+         'Embarked': embarked}
     ])
     
     # concaténation de test avec les données de ce passager
