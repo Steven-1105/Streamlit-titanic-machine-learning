@@ -46,7 +46,7 @@ content = {
                             We will use all the data available in the 'train.csv' file to predict whether the other 418 passengers on board (found in test.csv) survived.
 
                             You may find more information about the Kaggle challenge here: [Kaggle Titanic Challenge](https://www.kaggle.com/competitions/titanic/overview)
-                         """，
+                         """,
         "About":"About us",
         "About_1":"to be countinue :)",
     },
@@ -87,7 +87,7 @@ content = {
                             - test.csv contient des informations similaires au premier dataset à l'exception près que nous n'aurons aucune informations concernant la survie des passagers ("vérité terrain"). Ainsi nous devrons utiliser différents modèles de Machine Learning pour prédire au mieux la survie de ces 418 passagers du fichier 'test.csv'
 
                             Pour plus d'informations concernant les modalités du concours Kaggle : https://www.kaggle.com/competitions/titanic/overview
-                         """，
+                         """,
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
     },
