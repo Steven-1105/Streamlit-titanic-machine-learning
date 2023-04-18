@@ -189,7 +189,7 @@ if __name__ == '__main__':
     # 根据所选页面显示内容
     if selected_page == "Wiki":
         show_wiki()
-     elif selected_page == content[selected_language]["About"]:
+    elif selected_page == content[selected_language]["About"]:
         show_about()
     elif selected_page == content[selected_language]["Prediction"]:
         show_prediction()
