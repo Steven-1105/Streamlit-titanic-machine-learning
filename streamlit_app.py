@@ -12,8 +12,7 @@ content = {
         "question": "Please define the following information to predict the survival result of this passenger:",
         "image": "Sinking of the Titanic",
         "result_1": "Result：surviving",
-        "result_2": "Result：non-surviving",
-        
+        "result_2": "Result：non-surviving",      
 #         "sidebar_1": """
 #                         **Pclass (Passenger Class)** is the socio-economic status of the passenger and it is a categorical ordinal feature which has 3 unique values (1, 2 or 3):
 
@@ -30,6 +29,7 @@ content = {
         "Parch":"Total number of the passenger's parents and children",
         "Fare":"Price of ticket",
         "Embarked":"Port of embarkation",
+        "Prediction":"Would you survive?",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -53,6 +53,7 @@ content = {
         "Parch":"Nombre total de parents et d'enfants du passager",
         "Fare":"Prix du billet",
         "Embarked":"Port d'embarquement",
+        "Prediction":"Survivrez-vous?",
     },
 }
 
@@ -95,8 +96,15 @@ def train_model(data):
     model.fit(X_train,y_train)
     return model
 
+# Créer le wiki du projet
+def show_wiki():
+    st.title(content[selected_language]["title"])
+    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
+    st.markdown('Project L2I1: Machine Learning from Disaster')
+    st.markdown(content[selected_language]["question"])
+
 # Créer l'interface utilisateur de l'application
-def app_ui():
+def show_prediction():
 #     st.sidebar.markdown(content[selected_language]["sidebar_1"])
 #     st.sidebar.title(content[selected_language]["sidebar_2"])
 #     st.sidebar.title(content[selected_language]["sidebar_3"])
@@ -160,4 +168,11 @@ if __name__ == '__main__':
         options=["english", "french"],
         format_func=lambda x: "English" if x == "english" else "Français",
     )
-    app_ui()
+    # 在侧边栏创建页面选择器
+    pages = ["Wiki", content[selected_language]["prediction"]]
+    selected_page = st.sidebar.selectbox("Choose a window", pages)
+    # 根据所选页面显示内容
+    if selected_page == "Wiki":
+        show_wiki()
+    elif selected_page == content[selected_language]["prediction"]:
+        show_prediction()
