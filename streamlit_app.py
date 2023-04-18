@@ -109,7 +109,7 @@ def train_model(data):
 # Créer le wiki du projet
 def show_wiki():
     st.title(content[selected_language]["title_wiki"])
-    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
+    st.image("images/titanic_photo.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
