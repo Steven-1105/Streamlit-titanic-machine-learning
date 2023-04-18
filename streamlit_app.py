@@ -30,6 +30,7 @@ content = {
         "Fare":"Price of ticket",
         "Embarked":"Port of embarkation",
         "Prediction":"Would you survive?",
+        "title_wiki":"Wiki of our project: Machine Learning from Disaster",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -54,6 +55,7 @@ content = {
         "Fare":"Prix du billet",
         "Embarked":"Port d'embarquement",
         "Prediction":"Survivrez-vous?",
+        "title_wiki":"Wiki de notre projet : Machine Learning à partir d'une catastrophe",
     },
 }
 
@@ -98,7 +100,7 @@ def train_model(data):
 
 # Créer le wiki du projet
 def show_wiki():
-    st.title(content[selected_language]["title"])
+    st.title(content[selected_language]["title_wiki"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
