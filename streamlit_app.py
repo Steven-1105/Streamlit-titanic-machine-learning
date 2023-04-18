@@ -24,6 +24,7 @@ content = {
 #         "sidebar_4": "C = Cherbourg",
 #         "sidebar_5": "Q = Queenstown",
 #         "sidebar_6": "S = Southampton",
+        "Name":"Passenger's Name",
         "Pclass":"Passenger Class",
         "Sibsp":"Total number of the passenger's siblings and spouse",
         "Parch":"Total number of the passenger's parents and children",
@@ -51,6 +52,7 @@ content = {
 #         "sidebar_4": "C = Cherbourg",
 #         "sidebar_5": "Q = Queenstown",
 #         "sidebar_6": "S = Southampton",
+        "Nom" : "Nom du passager",
         "Pclass":"Passenger Class",
         "Sibsp":"Nombre total de frères et soeurs et de conjoint du passager",
         "Parch":"Nombre total de parents et d'enfants du passager",
@@ -132,6 +134,7 @@ def show_prediction():
     model = train_model(train)
 
     # définir les données de ce passager
+    name = st.text_input(content[selected_language]["Name"])
     pclass = st.selectbox(content[selected_language]["Pclass"], [1, 2, 3])
     sex = st.selectbox('Sex', ['male', 'female'])
     age = st.slider('Age', 0, 100, 25)
