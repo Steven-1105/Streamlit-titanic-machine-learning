@@ -29,8 +29,10 @@ content = {
         "Parch":"Total number of the passenger's parents and children",
         "Fare":"Price of ticket",
         "Embarked":"Port of embarkation",
+        "Choix":"Choose a window",
         "Prediction":"Would you survive?",
         "title_wiki":"Wiki of our project: Machine Learning from Disaster",
+        "About":"About us",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -54,8 +56,10 @@ content = {
         "Parch":"Nombre total de parents et d'enfants du passager",
         "Fare":"Prix du billet",
         "Embarked":"Port d'embarquement",
+        "Choix":"Choisir une fenêtre",
         "Prediction":"Survivrez-vous?",
         "title_wiki":"Wiki de notre projet : Machine Learning à partir d'une catastrophe",
+        "About":"A propos de nous",
     },
 }
 
@@ -171,8 +175,8 @@ if __name__ == '__main__':
         format_func=lambda x: "English" if x == "english" else "Français",
     )
     # 在侧边栏创建页面选择器
-    pages = ["Wiki", content[selected_language]["Prediction"]]
-    selected_page = st.sidebar.selectbox("Choose a window", pages)
+    pages = ["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"]]
+    selected_page = st.sidebar.selectbox(content[selected_language]["Choix"], pages)
     # 根据所选页面显示内容
     if selected_page == "Wiki":
         show_wiki()
