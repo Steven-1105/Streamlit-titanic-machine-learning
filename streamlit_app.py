@@ -20,11 +20,16 @@ content = {
                         - **1 = Upper Class**
                         - **2 = Middle Class**
                         - **3 = Lower Class** """,
-        "sidebar_2": "Sibsp: the total number of the passengers' siblings and spouse",
+        "sidebar_2": "Sibsp: the total number of the passenger's siblings and spouse",
         "sidebar_3": "Parch: the total number of the passenger's parents and children",
         "sidebar_4": "C = Cherbourg",
         "sidebar_5": "Q = Queenstown",
         "sidebar_6": "S = Southampton",
+        "Pclass":"Passenger Class",
+        "Sibsp":"Total number of the passenger's siblings and spouse",
+        "Parch":"Total number of the passenger's parents and children",
+        "Fare":"Price of ticket",
+        "Embarked":"Port of embarkation",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -43,6 +48,11 @@ content = {
         "sidebar_4": "C = Cherbourg",
         "sidebar_5": "Q = Queenstown",
         "sidebar_6": "S = Southampton",
+        "Pclass":"Passenger Class",
+        "Sibsp":"Nombre total de frères et soeurs et de conjoint du passager",
+        "Parch":"Nombre total de parents et d'enfants du passager",
+        "Fare":"Prix du billet",
+        "Embarked":"Port d'embarquement",
     },
 }
 
@@ -108,13 +118,13 @@ def app_ui():
     model = train_model(train)
 
     # définir les données de ce passager
-    pclass = st.selectbox('Passenger Class', [1, 2, 3])
+    pclass = st.selectbox(content[selected_language]["Pclass"], [1, 2, 3])
     sex = st.selectbox('Sex', ['male', 'female'])
     age = st.slider('Age', 0, 100, 25)
-    sibsp = st.slider("total number of the passengers' siblings and spouse", 0, 8, 0)
-    parch = st.slider("total number of the passenger's parents and children", 0, 10, 0)
-    fare = st.slider("Price of ticket", 0.0, 600.0, 50.0)
-    embarked = st.selectbox('Port of embarkation', ['C', 'Q', 'S'])
+    sibsp = st.slider(content[selected_language]["Sibsp"], 0, 8, 0)
+    parch = st.slider(content[selected_language]["Parch"], 0, 10, 0)
+    fare = st.slider(content[selected_language]["Fare"], 0.0, 600.0, 50.0)
+    embarked = st.selectbox(content[selected_language]["Embarked"], ['C', 'Q', 'S'])
 
     # créer un tableau de données de ce passager
     features = pd.DataFrame([
