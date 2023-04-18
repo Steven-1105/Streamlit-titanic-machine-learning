@@ -52,7 +52,7 @@ content = {
 #         "sidebar_4": "C = Cherbourg",
 #         "sidebar_5": "Q = Queenstown",
 #         "sidebar_6": "S = Southampton",
-        "Nom" : "Nom du passager",
+        "Name" : "Nom du passager",
         "Pclass":"Passenger Class",
         "Sibsp":"Nombre total de frères et soeurs et de conjoint du passager",
         "Parch":"Nombre total de parents et d'enfants du passager",
