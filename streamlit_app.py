@@ -169,10 +169,10 @@ if __name__ == '__main__':
         format_func=lambda x: "English" if x == "english" else "Français",
     )
     # 在侧边栏创建页面选择器
-    pages = ["Wiki", content[selected_language]["prediction"]]
+    pages = ["Wiki", content[selected_language]["Prediction"]]
     selected_page = st.sidebar.selectbox("Choose a window", pages)
     # 根据所选页面显示内容
     if selected_page == "Wiki":
         show_wiki()
-    elif selected_page == content[selected_language]["prediction"]:
+    elif selected_page == content[selected_language]["Prediction"]:
         show_prediction()
