@@ -34,7 +34,7 @@ content = {
         "Prediction":"Would you survive?",
         "title_wiki":"Wiki of our project: Machine Learning from Disaster",
         "About":"About us",
-        "About_1":"to be countinue",
+        "About_1":"to be countinue :)",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -63,7 +63,7 @@ content = {
         "Prediction":"Survivrez-vous?",
         "title_wiki":"Wiki de notre projet : Machine Learning à partir d'une catastrophe",
         "About":"A propos de nous",
-        "About_1" : "à compléter",
+        "About_1" : "à compléter :)",
     },
 }
 
