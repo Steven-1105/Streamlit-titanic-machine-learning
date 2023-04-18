@@ -33,6 +33,20 @@ content = {
         "Choix":"Choose a window",
         "Prediction":"Would you survive?",
         "title_wiki":"Wiki of our project: Machine Learning from Disaster",
+        "wiki_intro":"Introduction",
+        "wiki_1":"The sinking of the Titanic is one of the most infamous shipwrecks in history. On April 15, 1912, during her maiden voyage, the widely considered “unsinkable” RMS Titanic sank after colliding with an iceberg. Unfortunately, there weren’t enough lifeboats for everyone onboard, resulting in the death of 1502 out of 2224 passengers and crew. While there was some element of luck involved in surviving, it seems some groups of people were more likely to survive than others. In this challenge, we have to build a predictive model that answers the question: “what sorts of people were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).",
+        "wiki_objective":"""
+                            ## Objective
+
+                            In this project, we will have access to two similar datasets that include passenger information like name, age, gender, socio-economic class, etc. One dataset is titled 'train.csv' and the other one is titled 'test.csv'.
+
+                            - train.csv will contain the details of a subset of the passengers on board (891 to be exact) and importantly, will reveal whether they survived or not, also known as the “ground truth”. This information will help us to establish a link between passenger information and their survival.
+                            - test.csv dataset contains similar information but does not disclose the “ground truth” for each passenger. We will have to find the best models to predict these outcomes with a maximum success rate.
+
+                            We will use all the data available in the 'train.csv' file to predict whether the other 418 passengers on board (found in test.csv) survived.
+
+                            You may find more information about the Kaggle challenge here: [Kaggle Titanic Challenge](https://www.kaggle.com/competitions/titanic/overview)
+                         """，
         "About":"About us",
         "About_1":"to be countinue :)",
     },
@@ -62,6 +76,18 @@ content = {
         "Choix":"Choisir une fenêtre",
         "Prediction":"Survivrez-vous?",
         "title_wiki":"Wiki de notre projet : Machine Learning à partir d'une catastrophe",
+        "wiki_intro":"Introduction",
+        "wiki_1":"Le naufrage du Titanic est l'un des naufrages les plus tristement célèbres de l'histoire. Le 15 avril 1912, lors de son voyage inaugural, le RMS Titanic, largement considéré comme "insubmersible", a coulé après avoir heurté un iceberg. Malheureusement, il n'y avait pas assez de canots de sauvetage pour tout le monde à bord, ce qui a entraîné la mort de 1502 des 2224 passagers et membres d'équipage. Bien qu'il y ait eu une part de chance dans la survie, il semble que certains groupes de personnes aient eu plus de chances de survivre que d'autres. Dans ce défi, notre équipe va construire un modèle prédictif qui répond à la question suivante : “Quelles sont les personnes qui ont le plus de chances de survivre ?” en utilisant les données des passagers (nom, âge, sexe, classe socio-économique, etc.).",
+        "wiki_objective":"""
+                            ## Objectif
+
+                            Afin de réaliser ce projet, nous aurons accès à deux sets de donnés incluant des informations propres aux passagers telles que le nom, l'âge, le sex, classe sociale, etc... Le premier dataset est intitulé 'train.csv' et le second 'test.csv'
+
+                            - train.csv contient les informations d'une partie des passagers à bord du Titanic au moment du naufrage (891 passagers pour être exact). De plus ce dataset contient l'information sur la survie ou non de chaque passagers. On appel cette information la "vérité terrain", elle nous permettra d'entrainer notre modèle et d'établir des liens entre informations des passagers et la survie.
+                            - test.csv contient des informations similaires au premier dataset à l'exception près que nous n'aurons aucune informations concernant la survie des passagers ("vérité terrain"). Ainsi nous devrons utiliser différents modèles de Machine Learning pour prédire au mieux la survie de ces 418 passagers du fichier 'test.csv'
+
+                            Pour plus d'informations concernant les modalités du concours Kaggle : https://www.kaggle.com/competitions/titanic/overview
+                         """，
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
     },
@@ -111,7 +137,10 @@ def show_wiki():
     st.title(content[selected_language]["title_wiki"])
     st.image("images/titanic_photo.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
-    st.markdown(content[selected_language]["question"])
+    st.markdown(content[selected_language]["wiki_intro"])
+    st.markdown(content[selected_language]["wiki_1"])
+    st.markdown(content[selected_language]["wiki_objective"])
+    
 
 # Créer le wiki du projet
 def show_about():
