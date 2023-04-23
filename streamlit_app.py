@@ -68,7 +68,7 @@ content = {
         "Analyse" : "Data analysis",
         "Analyse_1": """    We have 2 files: train.csv and test.csv.
                             We will analyze the different available data to determine the main variables affecting a passenger's survival.
-                            
+
                             ## Available data:
 
                             | Variable | Definition | Key |
@@ -152,7 +152,7 @@ content = {
                         Ce projet est encadré par M.Paul Boniol
                     """,
         "Analyse" : "Analyse de données",
-        "Analyse_1" :   """ On dispose de 2 fichiers : train.csv et test.csv.
+        "Analyse_1" :"""    On dispose de 2 fichiers : train.csv et test.csv.
                             Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
 
                             ## Données disponibles : 
@@ -179,7 +179,7 @@ content = {
                             **sibsp**: Nombre de membres de la famille (Frère/soeur, époux/femme)
 
                             **parch**: Nombre de parents / enfants.
-                        """,
+                    """,
     },
 }
 
@@ -314,4 +314,3 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
