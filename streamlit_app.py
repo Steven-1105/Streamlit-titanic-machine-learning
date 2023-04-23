@@ -92,7 +92,7 @@ content = {
                             **sibsp**: Number of family members (siblings, spouse)
 
                             **parch**: Number of parents/children.
-         """
+                     """,
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
