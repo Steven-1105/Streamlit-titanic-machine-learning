@@ -332,12 +332,12 @@ def show_Analyse():
 
     # 绘制年龄和生还情况的直方图
     # Histogrammes de l'âge et de la survie
-    fig_age = sns.catplot(data=train, x='Age', hue='Survived', kind='count'，palette='winter', aspect=2)
+    fig_age = sns.catplot(data=train, x='Age', hue='Survived', kind='count', palette='winter', aspect=2)
     fig_age.fig.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
-    fig_embarked = sns.catplot(data=train, x='Embarked', hue='Survived', kind='count'，palette='winter', aspect=2)
+    fig_embarked = sns.catplot(data=train, x='Embarked', hue='Survived', kind='count', palette='winter', aspect=2)
     fig_embarked.fig.suptitle(content[selected_language]["Analyse_Embarked_1"])
 
     # 绘制船舱等级和生还情况的计数图
@@ -445,4 +445,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
