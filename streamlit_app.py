@@ -11,7 +11,8 @@ content = {
     "english": {
         "title": "Predicting the survival results of personalised Titanic passenger",
         "question": "Please define the following information to predict the survival result of this passenger:",
-        "image": "Sinking of the Titanic",
+        "image_1": "Sinking of the Titanic",
+        "image_2": "The cabins of the Titanic",
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",      
 #         "sidebar_1": """
@@ -69,7 +70,8 @@ content = {
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
         "question": "Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager:",
-        "image": "Naufrage du Titanic",
+        "image_1": "Naufrage du Titanic",
+        "image_2": "Les cabines du Titanic",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
 #         "sidebar_1" : """ 
@@ -167,7 +169,7 @@ def train_model(data):
 # Créer le wiki du projet
 def show_wiki():
     st.title(content[selected_language]["title_wiki"])
-    st.image("images/titanic_photo.jpg", caption=content[selected_language]["image"])
+    st.image("images/titanic_photo.jpg", caption=content[selected_language]["image_1"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["wiki_intro"])
     st.markdown(content[selected_language]["wiki_objective"])
@@ -180,15 +182,10 @@ def show_about():
 # Créer l'Analyse de données
 def show_Analyse():
     st.markdown(content[selected_language]["About_1"])
+    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
-#     st.sidebar.markdown(content[selected_language]["sidebar_1"])
-#     st.sidebar.title(content[selected_language]["sidebar_2"])
-#     st.sidebar.title(content[selected_language]["sidebar_3"])
-#     st.sidebar.title(content[selected_language]["sidebar_4"])
-#     st.sidebar.title(content[selected_language]["sidebar_5"])
-#     st.sidebar.title(content[selected_language]["sidebar_6"])
     st.title(content[selected_language]["title"])
     st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
