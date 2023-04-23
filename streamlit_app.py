@@ -294,7 +294,6 @@ def show_about():
 # Créer l'Analyse de données
 def show_Analyse():
     st.markdown(content[selected_language]["Analyse_1"])
-    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     train = pd.read_csv("Data_from_Kaggle/train.csv")
     # sélectionner le style de seaborn
     sns.set(style="darkgrid")
@@ -314,13 +313,17 @@ def show_Analyse():
     fig_embarked, ax = plt.subplots()
     sns.countplot(data=train, x='Embarked', hue='Survived' )
 
+    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
-    cabin_col = train['Cabin']
-    cabin_col_filled = cabin_col.fillna('Unknown')
-    levels = [level[0] for level in cabin_col_filled]
-    cabin_df = pd.DataFrame(levels, columns=['Cabin'])
-    fig_cabin = sns.catplot(x='Cabin', data=cabin_df, kind='count', order=['A','B','C','D','E','F','G','Unknown'], aspect=2, palette='winter')
+    # Fill the missing values in the 'Cabin' column with 'Unknown'
+    train['Cabin'].fillna('Unknown', inplace=True)
+
+    # Extract the first letter from each value in the 'Cabin' column
+    train['Cabin'] = train['Cabin'].apply(lambda x: x[0])
+
+    # Create a countplot of 'Cabin' vs 'Survived'
+    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G','Unknown'], palette='winter', aspect=2)
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
