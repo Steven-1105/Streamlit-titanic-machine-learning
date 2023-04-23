@@ -315,11 +315,9 @@ def show_Analyse():
 
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
-    train['Cabin'] = train['Cabin'].astype('category')
     # Replace missing cabin values with "Unknown"
-    train['Cabin'].cat.add_categories("Unknown", inplace=True)
-    train['Cabin'].fillna("Unknown", inplace=True)
-    fig_cabin, ax = plt.subplots()
+    train['Cabin'] = train['Cabin'].fillna('Unknown')
+    fig_cabin, ax = plt.subplots(figsize=(10, 6))
     sns.countplot(x='Cabin', hue='Survived', data=train, ax=ax)
 
     # afficher le plot sur Streamlit
