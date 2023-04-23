@@ -296,7 +296,7 @@ def show_Analyse():
     st.pyplot(fig_sex)
     st.markdown(content[selected_language]["Analyse_Sex"])
     st.pyplot(fig_age)
-    t.markdown(content[selected_language]["Analyse_Age"])
+    st.markdown(content[selected_language]["Analyse_Age"])
     st.pyplot(fig_embarked)
     st.markdown(content[selected_language]["Analyse_Embarked"])
     
