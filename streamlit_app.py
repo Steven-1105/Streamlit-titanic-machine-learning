@@ -66,7 +66,7 @@ content = {
                         This project is supervised by Mr. Paul Boniol.
                     """,
         "Analyse" : "Data analysis",
-        "Analyse_1": """We have 2 files: train.csv and test.csv.
+        "Analyse_1": """We have 2 files: train.csv and test.csv.\n We will analyse the different data available to us in order to determine the main variables affecting the survival of a passenger.
 ## Available data:
 
 | Variable | Definition | Key |
@@ -150,7 +150,7 @@ content = {
                         Ce projet est encadré par M.Paul Boniol
                     """,
         "Analyse" : "Analyse de données",
-        "Analyse_1" :"""On dispose de 2 fichiers : train.csv et test.csv
+        "Analyse_1" :"""On dispose de 2 fichiers : train.csv et test.csv.\n
 Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
 
 ## Données disponibles : 
