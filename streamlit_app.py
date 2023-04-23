@@ -242,7 +242,7 @@ def show_Analyse():
 # Créer l'interface utilisateur de l'application
 def show_prediction():
     st.title(content[selected_language]["title"])
-    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
+    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image_1"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
