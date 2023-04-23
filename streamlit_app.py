@@ -123,6 +123,15 @@ These conclusions indicate that age has a certain influence on the survival rate
 
 In summary, cabin information may have a certain influence on passengers' survival rate, and specific cabin categories may be related to the survival rate. However, due to the lack of cabin information, the conclusions may be subject to errors and some imprecision.
         """,
+        "Analyse_Pclass": """From this histogram, we observe that:
+
+- For the 1st class passengers, there are significantly more survivors than deaths (about 140 survivors and 80 deaths)
+- For the 2nd class passengers, there were more deaths than survivors (about 85 survivors and 100 deaths)
+- For the 3rd class passengers, there are significantly more deaths than survivors (about 120 survivors and over 370 deaths)
+
+Thus, it is the people in the first class who have survived the most. And the percentage of deaths is higher for 3rd class passengers.
+""",
+        "Analyse_Pclass_1" : "Distribution of Survival by Passenger Class"
 
     },
     "french": {
@@ -238,6 +247,15 @@ Ces conclusions indiquent que l'âge a une certaine influence sur le taux de sur
 
 En résumé, les informations de cabine peuvent avoir une certaine influence sur le taux de survie des passagers, et des catégories de cabine spécifiques peuvent être liées au taux de survie. Cependant, en raison du manque d'informations sur les cabines, les conclusions peuvent être sujettes à des erreurs et à une certaine imprécision.
         """,
+        "Analyse_Pclass" :"""Par cet histogramme, nous remarquons que :
+
+- Pour les passagers de 1ère classe, il y a largement plus de survivants que de morts (environ 140 survivants et 80 morts)
+- Pour ceux de 2ème classe, il y a eu plus de morts que de survivants (environ 85 survivants et 100 morts)
+- Pour la 3ème classe sociale, il y a largement plus de morts que de survivants (environ 120 survivants et plus de 370 morts)
+
+Ainsi ce sont les personnes de la première classe qui ont le plus suvécu. Et le pourcentage de décès est plus élévé pour les passagers de 3ème classe.
+""",
+        "Analyse_Pclass_1" : "Répartition de la survie par classe de passagers"
     },
 }
 
@@ -313,6 +331,12 @@ def show_Analyse():
     fig_embarked, ax = plt.subplots()
     sns.countplot(data=train, x='Embarked', hue='Survived' )
 
+    # 绘制船舱等级和生还情况的计数图
+    # résultat des chiffres relatifs au pclass et à la survie
+    fig_pclass = sns.catplot(x='Pclass', hue='Survived', data=train, kind='count', palette='winter', aspect=2)
+    # Set the plot title
+    fig_pclass.fig.suptitle(content[selected_language]["Analyse_Pclass_1"])
+
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
     # Fill the missing values in the 'Cabin' column with 'Unknown'
@@ -331,6 +355,8 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_Age"])
     st.pyplot(fig_embarked)
     st.markdown(content[selected_language]["Analyse_Embarked"])
+    st.pyplot(fig_pclass)
+    st.markdown(content[selected_language]["Analyse_Pclass"])
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
