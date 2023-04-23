@@ -332,8 +332,10 @@ def show_Analyse():
 
     # 绘制年龄和生还情况的直方图
     # Histogrammes de l'âge et de la survie
-    fig_age = sns.catplot(data=train, x='Age', hue='Survived', kind='count', palette='winter', aspect=2)
-    fig_age.fig.suptitle(content[selected_language]["Analyse_Age_1"])
+    fig_age = plt.figure()
+    ax = fig_age.add_subplot(1, 1, 1)
+    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax, palette='winter', aspect=2)
+    fig_age.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
@@ -445,5 +447,6 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
 
