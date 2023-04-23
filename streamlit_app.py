@@ -61,7 +61,7 @@ content = {
                         ## Project Members
                         We are 4 students in our second year of Computer Science/Mathematics and Computer Science degree at the University Paris Descartes:
                         
-                        - Hongxiang LIN
+                        - Hongxiang Lin
                         - Matthieu Antonopoulos
                         - Melissa Merabet
                         - Timothé Miel
@@ -180,7 +180,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
                         ## Les membres du projet
                         Nous sommes 4 étudiants en 2ème année de licence informatique/mathématique et informatique à l'Unversité Paris Descartes:
 
-                        - Hongxiang LIN
+                        - Hongxiang Lin
                         - Matthieu Antonopoulos
                         - Melissa Merabet
                         - Timothé Miel
@@ -434,4 +434,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
