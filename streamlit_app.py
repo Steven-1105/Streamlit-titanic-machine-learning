@@ -53,7 +53,18 @@ content = {
                          """,
         "About":"About us",
         "About_1":"to be countinue :)",
-        "Analyse" : "Data analysis",
+        "About_2":  """
+                        ## Project Members
+                        We are 4 students in our second year of Computer Science/Mathematics and Computer Science degree at the University Paris Descartes:
+                        
+                        - Hongxiang LIN
+                        - Matthieu Antonopoulos
+                        - Melissa Merabet
+                        - Timothé Miel
+
+                        This project is supervised by Mr. Paul Boniol.
+                    """,
+        "Analyse" : "analysis",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -99,7 +110,18 @@ content = {
                          """,
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
-        "Analyse" : "Analyse de données",
+        "About_2" : """
+                        ## Les membres du projet
+                        Nous sommes 4 étudiants en 2ème année de licence informatique/mathématique et informatique à l'Unversité Paris Descartes:
+
+                        - Hongxiang LIN
+                        - Matthieu Antonopoulos
+                        - Melissa Merabet
+                        - Timothé Miel
+
+                        Ce projet est encadré par M.Paul Boniol
+                    """,
+        "Analyse" : "Analyse",
     },
 }
 
@@ -153,7 +175,7 @@ def show_wiki():
 
 # Créer le wiki du projet
 def show_about():
-    st.markdown(content[selected_language]["About_1"])
+    st.markdown(content[selected_language]["About_2"])
 
 # Créer l'Analyse de données
 def show_Analyse():
