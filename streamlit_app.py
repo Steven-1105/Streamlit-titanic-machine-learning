@@ -66,7 +66,8 @@ content = {
                         This project is supervised by Mr. Paul Boniol.
                     """,
         "Analyse" : "Data analysis",
-        "Analyse_1": """We have 2 files: train.csv and test.csv.\n We will analyse the different data available to us in order to determine the main variables affecting the survival of a passenger.
+        "Analyse_1": """We have 2 files: train.csv and test.csv.\n 
+We will analyse the different data available to us in order to determine the main variables affecting the survival of a passenger.
 ## Available data:
 
 | Variable | Definition | Key |
