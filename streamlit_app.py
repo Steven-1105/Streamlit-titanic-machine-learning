@@ -112,7 +112,6 @@ These conclusions indicate that age has a certain influence on the survival rate
         "Analyse_Age_1" : "Distribution of Survival by Age of Passengers",
         "Analyse_Cabin": """According to the analysis graph, we can draw the following conclusions:
 
-- Many passengers have lost their cabin information and the survival rate of these passengers is relatively low
 - Cabin information is represented by letters, which can represent different positions or levels
 - Passengers in categories B, C, D, E and F have a relatively high survival rate of their cabin information
 - Category A and G passengers have relatively low survival rates
@@ -234,7 +233,6 @@ Ces conclusions indiquent que l'âge a une certaine influence sur le taux de sur
         "Analyse_Age_1" : "Distribution de la survie par âge des passagers",
         "Analyse_Cabin" : """Selon le graphique d'analyse, nous pouvons tirer les conclusions suivantes :
 
-- De nombreux passagers ont perdu leurs informations de cabine et le taux de survie de ces passagers est relativement faible
 - Les informations de cabine sont représentées par des lettres, ce qui peut représenter différentes positions ou niveaux
 - les passagers des catégories B, C, D, E et F ont un taux de survie relativement élevé de leurs informations de cabine
 - les taux de survie des passagers des catégories A et G sont relativement faibles
