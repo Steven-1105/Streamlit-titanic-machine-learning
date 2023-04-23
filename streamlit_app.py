@@ -320,9 +320,8 @@ def show_Analyse():
     levels = []
     for level in deck:
         levels.append(level[0])
-    cabin_df = DataFrame(levels)
-    cabin_df.columns=['Cabin']
-    fig_cabin = sns.catplot('Cabin', data=cabin_df, kind='count', order=['A','B','C','D','E','F','G'], aspect=2, palette='winter')
+    cabin_df = pd.DataFrame(levels, columns=['Cabin'])
+    fig_cabin = sns.catplot(x='Cabin', data=cabin_df, kind='count', order=['A','B','C','D','E','F','G'], aspect=2, palette='winter')
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
