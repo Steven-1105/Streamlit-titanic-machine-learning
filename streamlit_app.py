@@ -85,15 +85,6 @@ We will analyse the different data available to us in order to determine the mai
 | fare |  Passenger fare | |
 | cabin |  Cabin number | |
 | embarked |  Port of Embarkation |  C = Cherbourg, Q = Queenstown, S = Southampton |
-
-**pclass**: Social status:
-- 1st = high
-- 2nd = medium
-- 3rd = low
-
-**sibsp**: Number of family members (siblings, spouse)
-
-**parch**: Number of parents/children.
 """, 
         "Analyse_Embarked": """Through this histogram, we realize that:
 
@@ -212,15 +203,6 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 |fare | Tarif du passager  ||
 |cabin |  Numéro de la cabine||  
 |embarked |  Port d'embarquement|  C = Cherbourg, Q = Queenstown, S = Southampton|
-
-**pclass**: Statut social :
-- 1st = haute
-- 2nd = moyenne 
-- 3rd = basse
-
-**sibsp**: Nombre de membres de la famille (Frère/soeur, époux/femme)
-
-**parch**: Nombre de parents / enfants.
 """,
         "Analyse_Embarked" : """Par cet histogramme, nous réalisons que:
 
@@ -447,6 +429,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
 
 
