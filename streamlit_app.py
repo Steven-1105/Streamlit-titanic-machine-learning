@@ -334,17 +334,17 @@ def show_Analyse():
     # Histogrammes de l'âge et de la survie
     fig_age = plt.figure()
     ax = fig_age.add_subplot(1, 1, 1)
-    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax, palette='winter')
+    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax)
     fig_age.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
-    fig_embarked = sns.catplot(data=train, x='Embarked', hue='Survived', kind='count', palette='winter', aspect=2)
+    fig_embarked = sns.catplot(data=train, x='Embarked', hue='Survived', kind='count', aspect=2)
     fig_embarked.fig.suptitle(content[selected_language]["Analyse_Embarked_1"])
 
     # 绘制船舱等级和生还情况的计数图
     # résultat des chiffres relatifs au pclass et à la survie
-    fig_pclass = sns.catplot(x='Pclass', hue='Survived', data=train, kind='count', palette='winter', aspect=2)
+    fig_pclass = sns.catplot(x='Pclass', hue='Survived', data=train, kind='count', aspect=2)
     # Set the plot title
     fig_pclass.fig.suptitle(content[selected_language]["Analyse_Pclass_1"])
 
@@ -357,7 +357,7 @@ def show_Analyse():
     train['Cabin'] = train['Cabin'].apply(lambda x: x[0])
 
     # Create a countplot of 'Cabin' vs 'Survived'
-    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G'], palette='winter', aspect=2)
+    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G'], aspect=2)
     fig_cabin.fig.suptitle(content[selected_language]["Analyse_Cabin_1"])
 
     # afficher le plot sur Streamlit
