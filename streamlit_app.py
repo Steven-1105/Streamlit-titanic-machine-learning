@@ -53,6 +53,7 @@ content = {
                          """,
         "About":"About us",
         "About_1":"to be countinue :)",
+        "Analyse" : "analysis",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -98,6 +99,7 @@ content = {
                          """,
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
+        "Analyse" : "Analyse",
     },
 }
 
@@ -151,7 +153,11 @@ def show_wiki():
 
 # Créer le wiki du projet
 def show_about():
-    st.markdown(content[selected_language]["About_1"])   
+    st.markdown(content[selected_language]["About_1"])
+
+# Créer l'Analyse de données
+def show_Analyse():
+
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
@@ -222,12 +228,14 @@ if __name__ == '__main__':
     )
     # 在页面内创建页面选择器
     # Créer un sélecteur de page 
-    tab_wiki, tab_About, tab_prediction = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"]])
+    tab_wiki, tab_About, tab_Prediction, tab_Analyse = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"],content[selected_language]["Analyse"]])
     # 根据所选页面显示内容
     # Afficher le contenu en fonction de la page sélectionnée
     with tab_wiki:
         show_wiki()
     with tab_About:
         show_about()
-    with tab_prediction:
+    with tab_Prediction:
         show_prediction()
+    with tab_Analyse:
+        show_Analyse()
