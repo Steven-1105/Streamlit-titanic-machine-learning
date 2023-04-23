@@ -223,7 +223,6 @@ if __name__ == '__main__':
     # 在页面内创建页面选择器
     # Créer un sélecteur de page 
     tab_wiki, tab_About, tab_prediction = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"]])
-    selected_page = st.sidebar.selectbox(content[selected_language]["Choix"], pages)
     # 根据所选页面显示内容
     # Afficher le contenu en fonction de la page sélectionnée
     with tab_wiki:
