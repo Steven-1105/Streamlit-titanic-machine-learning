@@ -317,13 +317,103 @@ def show_Analyse():
     # résultat des chiffres relatifs au cabines et à la survie
     # Fill the missing values in the 'Cabin' column with 'Unknown'
     # train['Cabin'].fillna('Unknown', inplace=True)
-    train['Cabin'] = train['Cabin'].dropna()
+    # 绘制乘客船舱和生还情况的计数图
+    # résultat des chiffres relatifs au cabines et à la survie
+    # Fill the missing values in the 'Cabin' column with 'Unknown'
+    train['Cabin'].fillna('Unknown', inplace=True)
 
     # Extract the first letter from each value in the 'Cabin' column
     train['Cabin'] = train['Cabin'].apply(lambda x: x[0])
 
     # Create a countplot of 'Cabin' vs 'Survived'
-    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G'], palette='winter', aspect=2)
+    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G','Unknown'], palette='winter', aspect=2)
+
+    # afficher le plot sur Streamlit
+    st.pyplot(fig_sex)
+    st.markdown(content[selected_language]["Analyse_Sex"])
+    st.pyplot(fig_age)
+    st.markdown(content[selected_language]["Analyse_Age"])
+    st.pyplot(fig_embarked)
+    st.markdown(content[selected_language]["Analyse_Embarked"])
+    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
+    st.pyplot(fig_cabin)
+    st.markdown(content[selected_language]["Analyse_Cabin"])
+    
+# Créer l'interface utilisateur de l'application
+def show_prediction():
+    st.title(content[selected_language]["title"])
+    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image_1"])
+    st.markdown('Project L2I1: Machine Learning from Disaster')
+    st.markdown(content[selected_language]["question"])
+
+    # Chargement de données
+    train = load_data()
+    test = pd.read_csv("Data_from_Kaggle/test.csv")
+    features_drop=['Name','Ticket','Cabin','PassengerId']
+    test=test.drop(features_drop, axis=1)
+    
+    # entraîner le modèle
+    model = train_model(train)
+
+    # définir les données de ce passager
+    name = st.text_input(content[selected_language]["Name"])
+    pclass = st.selectbox(content[selected_language]["Pclass"], [1, 2, 3])
+    sex = st.selectbox('Sex', ['male', 'female'])
+    age = st.slider('Age', 0, 100, 25)
+    sibsp = st.slider(content[selected_language]["Sibsp"], 0, 8, 0)
+    parch = st.slider(content[selected_language]["Parch"], 0, 10, 0)
+    fare = st.slider(content[selected_language]["Fare"], 0.0, 600.0, 50.0)
+    embarked = st.selectbox(content[selected_language]["Embarked"], ['C', 'Q', 'S'])
+
+    # créer un tableau de données de ce passager
+    features = pd.DataFrame([
+        {'Pclass': pclass,
+         'Sex': sex,
+         'Age': age,
+         'SibSp': sibsp,
+         'Parch': parch,
+         'Fare': fare,
+         'Embarked': embarked}
+    ])
+    
+    # concaténation de test avec les données de ce passager
+    all_passengers = pd.concat([test, features])
+    all_passengers = preprocess_data(all_passengers)
+    
+    # faire la prédiction avec le Random Forest
+    prediction = model.predict(all_passengers)
+    last_prediction = prediction[-1]
+    
+    # Afficher le résultat prévu
+    
+    if last_prediction == 1:
+        st.success(content[selected_language]["result_1"])
+    else:
+        st.error(content[selected_language]["result_2"])
+
+# démarrer le programme
+if __name__ == '__main__':
+    # 用户选择语言 
+    # Langues sélectionnées par l'utilisateur
+    selected_language = st.sidebar.selectbox(
+        "Select a language / Sélectionnez une langue",
+        options=["english", "french"],
+        format_func=lambda x: "English" if x == "english" else "Français",
+    )
+    # 在页面内创建页面选择器
+    # Créer un sélecteur de page 
+    tab_wiki, tab_About, tab_Prediction, tab_Analyse = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"],content[selected_language]["Analyse"]])
+    # 根据所选页面显示内容
+    # Afficher le contenu en fonction de la page sélectionnée
+    with tab_wiki:
+        show_wiki()
+    with tab_About:
+        show_about()
+    with tab_Prediction:
+        show_prediction()
+    with tab_Analyse:
+        show_Analyse()
+
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
