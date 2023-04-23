@@ -328,13 +328,13 @@ def show_Analyse():
     # résultat des chiffres relatifs au sexe et à la survie
     fig_sex, ax = plt.subplots()
     sns.countplot(data=train, x='Sex', hue='Survived')
-    fig_sex.fig.suptitle(content[selected_language]["Analyse_Sex_1"])
+    ax.set_title(content[selected_language]["Analyse_Sex_1"])
 
     # 绘制年龄和生还情况的直方图
     # Histogrammes de l'âge et de la survie
     fig_age, ax = plt.subplots()
     sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax)
-    fig_age.fig.suptitle(content[selected_language]["Analyse_Age_1"])
+    ax.set_title(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
@@ -446,5 +446,4 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
 
