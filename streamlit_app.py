@@ -240,7 +240,7 @@ def show_Analyse():
     train = pd.read_csv("Data_from_Kaggle/train.csv")
     sns.set(style="darkgrid")
     fig_sex, ax = plt.subplots()
-    sns.countplot('Sex', hue='Survived', data=train, ax=ax)
+    sns.countplot(data=train, x='Sex', hue='Survived')
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
 
