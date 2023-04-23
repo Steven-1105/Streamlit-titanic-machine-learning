@@ -65,7 +65,7 @@ content = {
 
                         This project is supervised by Mr. Paul Boniol.
                     """,
-        "Analyse" : "analysis",
+        "Analyse" : "Data analysis",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -123,7 +123,7 @@ content = {
 
                         Ce projet est encadré par M.Paul Boniol
                     """,
-        "Analyse" : "Analyse",
+        "Analyse" : "Analyse de données",
     },
 }
 
