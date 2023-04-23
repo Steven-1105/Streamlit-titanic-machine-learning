@@ -75,8 +75,8 @@ content = {
 | pclass | Ticket class | 1 = 1st, 2 = 2nd, 3 = 3rd |
 | sex | Sex | |
 | Age | Age in years | |
-| sibsp | # of siblings / spouses aboard the Titanic | |
-| parch | # of parents / children aboard the Titanic | |
+| sibsp | Number of siblings / spouses aboard the Titanic | |
+| parch | Number of parents / children aboard the Titanic | |
 | ticket | Ticket number | |
 | fare | Passenger fare | |
 | cabin | Cabin number | |
@@ -155,20 +155,20 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 
 ## Données disponibles : 
 
-| Variable  | Definition |  Key | 
+| Variable  | Définition |  Key | 
 |:---------:|:----------:|:----:|
-|survival | Survival |  0 = No, 1 = Yes|
-|pclass | Ticket class |    1 = 1st, 2 = 2nd, 3 = 3rd|
-|sex |  Sex ||
-|Age |  Age in years|   |
-|sibsp |    # of siblings / spouses aboard the Titanic  ||
-|parch |    # of parents / children aboard the Titanic  ||
-|ticket |   Ticket number   ||
-|fare | Passenger fare  ||
-|cabin |    Cabin number||  
-|embarked | Port of Embarkation|    C = Cherbourg, Q = Queenstown, S = Southampton|
+|survival | Survie |  0 = Non, 1 = Oui|
+|pclass | Classe du billet |  1 = 1ère, 2 = 2ème, 3 = 3ème|
+|sex |  Sexe ||
+|Age |  Âge en années|   |
+|sibsp |    Nombre de frères/soeurs/époux à bord du Titanic  ||
+|parch |    Nombre de parents / enfants à bord du Titanic  ||
+|ticket |   Numéro du billet  ||
+|fare | Tarif du passager  ||
+|cabin |    Numéro de la cabine||  
+|embarked | Port d'embarquement|    C = Cherbourg, Q = Queenstown, S = Southampton|
 
-**pclass**: Statut sociale :
+**pclass**: Statut social :
 - 1st = haute
 - 2nd = moyenne 
 - 3rd = basse
@@ -311,5 +311,3 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
-
