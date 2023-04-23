@@ -332,14 +332,12 @@ def show_Analyse():
 
     # 绘制年龄和生还情况的直方图
     # Histogrammes de l'âge et de la survie
-    fig_age, ax = plt.subplots()
-    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax)
-    ax.set_title(content[selected_language]["Analyse_Age_1"])
+    fig_age = sns.catplot(data=train, x='Age', hue='Survived', kind='count'，palette='winter', aspect=2)
+    fig_age.fig.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
-    fig_embarked, ax = plt.subplots()
-    sns.countplot(data=train, x='Embarked', hue='Survived' )
+    fig_embarked = sns.catplot(data=train, x='Embarked', hue='Survived', kind='count'，palette='winter', aspect=2)
     fig_embarked.fig.suptitle(content[selected_language]["Analyse_Embarked_1"])
 
     # 绘制船舱等级和生还情况的计数图
@@ -358,6 +356,7 @@ def show_Analyse():
 
     # Create a countplot of 'Cabin' vs 'Survived'
     fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G'], palette='winter', aspect=2)
+    fig_cabin.fig.suptitle(content[selected_language]["Analyse_Cabin_1"])
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
