@@ -94,7 +94,24 @@ We will analyse the different data available to us in order to determine the mai
 
 **parch**: Number of parents/children.
 """, 
+        "Analyse_Embarked": """Through this histogram, we realize that:
 
+- For passengers who embarked from the port of Cherbourg, there were more survivors than deaths (about 75 deaths and 90 survivors)
+- For those who embarked from the port of Southampton, there are more deaths than survivors (over 400 deaths and about 230 survivors)
+- For those who embarked from the port of Queenstown, there are more deaths than survivors (about 50 deaths and 40 survivors)
+
+Therefore, people who embarked from the port of Cherbourg have survived the most. And the percentage of deaths is higher for those who embarked from the port of Southampton. This may be related to the class of passengers embarking from each port (hypothesis).
+""",
+        "Analyse_Sex" : "By this histogram, we notice that about 100 men survived against more than 450 deaths; and about a hundred women died against approximately 250 survivors. More than 2/3 of the survivors are women.",
+        "Analyse_Age" :"""According to the analysis graph, the following conclusions can be drawn:
+
+- Most of the passengers were between 20 and 40 years old;
+- Infants and young children (0 to 4 years old) had relatively high survival rates;
+- Elderly people (60 years old and above) had relatively low survival rates;
+- Passengers between the ages of 15 and 35 generally had low survival rates.
+
+These conclusions indicate that age has a certain influence on the survival rate on the Titanic, especially for infants and young children, who had higher survival rates. The relatively low survival rate for passengers between the ages of 15 and 35 may be related to factors such as their position on the ship, gender, and cabin class. Therefore, passengers of different ages may need to adopt different survival strategies to improve their chances of survival on the Titanic.
+        """,
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -180,6 +197,25 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 
 **parch**: Nombre de parents / enfants.
 """,
+        "Analyse_Embarked" : """Par cet histogramme, nous réalisons que:
+
+- Pour les passagers ayant embarqué depuis le port de Cherbourg, il y a eu plus de survivants que de morts (environ 75 morts et 90 survivants)
+- Pour ceux ayant embarqué depuis le port de Southampton il y a plus de morts que de survivants (plus de 400 morts et environ 230 survivants)
+- Pour ceux ayant embarqué depuis le port de Queenstown il y a plus de morts que de survivants (environ 50 morts et 40 survivants)
+
+Ce sont donc les personnes qui ont embarqué depuis le port de Cherbourg qui ont le plus survécu. Et le pourcentage de décès est plus élévé pour ceux qui ont embarqué depuis le port de Southampton. Cela peut être lié à la classe des passagers embarcant dans chaque ports (hypothèse)
+
+""",
+        "Analyse_Sex" : "Nous remarquons par cet histograme, qu'environ 100 hommes ont survécu contre plus de 450 morts; et qu'une centaine de femmes sont décédées contre environ 250 survivantes. Plus de 2/3 des survivants sont des femmes.",
+        "Analyse_Age" :"""Selon le graphique d'analyse, les conclusions suivantes peuvent être tirées :
+
+- La plupart des passagers étaient âgés entre 20 et 40 ans;
+- Les nourrissons et les jeunes enfants (de 0 à 4 ans) ont eu des taux de survie relativement élevés ;
+- Les personnes âgées (de 60 ans et plus) ont eu des taux de survie relativement faibles;
+- Les passagers âgés de 15 à 35 ans ont généralement eu des taux de survie faibles.
+
+Ces conclusions indiquent que l'âge a une certaine influence sur le taux de survie sur le Titanic, en particulier pour les nourrissons et les jeunes enfants, qui ont eu des taux de survie plus élevés. Le taux de survie relativement faible pour les passagers âgés de 15 à 35 ans peut être lié à des facteurs tels que leur position sur le navire, leur sexe et leur classe de cabine. Par conséquent, les passagers de différents âges peuvent avoir besoin d'adopter différentes stratégies de survie pour améliorer leurs chances de survie sur le Titanic.
+""",
     },
 }
 
@@ -258,8 +294,11 @@ def show_Analyse():
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
+    st.markdown(content[selected_language]["Analyse_Sex"])
     st.pyplot(fig_age)
+    t.markdown(content[selected_language]["Analyse_Age"])
     st.pyplot(fig_embarked)
+    st.markdown(content[selected_language]["Analyse_Embarked"])
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
