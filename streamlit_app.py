@@ -66,6 +66,33 @@ content = {
                         This project is supervised by Mr. Paul Boniol.
                     """,
         "Analyse" : "Data analysis",
+        "Analyse_1": """    We have 2 files: train.csv and test.csv.
+                            We will analyze the different available data to determine the main variables affecting a passenger's survival.
+                            ## Available data:
+
+                            | Variable | Definition | Key |
+                            |:--------:|:----------:|:---:|
+                            | survival | Survival | 0 = No, 1 = Yes |
+                            | pclass | Ticket class | 1 = 1st, 2 = 2nd, 3 = 3rd |
+                            | sex | Sex ||
+                            | Age | Age in years ||
+                            | sibsp | # of siblings / spouses aboard the Titanic ||
+                            | parch | # of parents / children aboard the Titanic ||
+                            | ticket | Ticket number ||
+                            | fare | Passenger fare ||
+                            | cabin | Cabin number ||
+                            | embarked | Port of Embarkation | C = Cherbourg, Q = Queenstown, S = Southampton |
+
+                            **pclass**: Social status:
+
+                            - 1st = high
+                            - 2nd = medium
+                            - 3rd = low
+
+                            **sibsp**: Number of family members (siblings, spouse)
+
+                            **parch**: Number of parents/children.
+         """
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -124,6 +151,34 @@ content = {
                         Ce projet est encadré par M.Paul Boniol
                     """,
         "Analyse" : "Analyse de données",
+        "Analyse_1" :   """ On dispose de 2 fichiers : train.csv et test.csv.
+                            Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
+
+                            ## Données disponibles : 
+
+                            | Variable  | Definition |  Key | 
+                            |:---------:|:----------:|:----:|
+                            |survival | Survival |  0 = No, 1 = Yes|
+                            |pclass | Ticket class |    1 = 1st, 2 = 2nd, 3 = 3rd|
+                            |sex |  Sex ||
+                            |Age |  Age in years|   |
+                            |sibsp |    # of siblings / spouses aboard the Titanic  ||
+                            |parch |    # of parents / children aboard the Titanic  ||
+                            |ticket |   Ticket number   ||
+                            |fare | Passenger fare  ||
+                            |cabin |    Cabin number||  
+                            |embarked | Port of Embarkation|    C = Cherbourg, Q = Queenstown, S = Southampton|
+
+                            **pclass**: Statut sociale :
+
+                                - 1st = haute
+                                - 2nd = moyenne 
+                                - 3rd = basse
+
+                            **sibsp**: Nombre de membres de la famille (Frère/soeur, époux/femme)
+
+                            **parch**: Nombre de parents / enfants.
+                        """,
     },
 }
 
@@ -181,13 +236,13 @@ def show_about():
 
 # Créer l'Analyse de données
 def show_Analyse():
-    st.markdown(content[selected_language]["About_1"])
+    st.markdown(content[selected_language]["Analyse_1"])
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
     st.title(content[selected_language]["title"])
-    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image_1"])
+    st.image("images/100_anniversary_titanic.jpg", caption=content[selected_language]["image"])
     st.markdown('Project L2I1: Machine Learning from Disaster')
     st.markdown(content[selected_language]["question"])
 
