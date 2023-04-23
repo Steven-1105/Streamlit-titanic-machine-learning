@@ -2,6 +2,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
@@ -188,6 +190,7 @@ def load_data():
     data = pd.read_csv("train_fini.csv")
     return data
 
+# Preprocessing de données
 def preprocess_data(test):
     #Age
     test['Age'] = test['Age'].fillna(test['Age'].median())
@@ -209,8 +212,6 @@ def preprocess_data(test):
     
     return test
 
-
-
 # entraîner le modèle
 def train_model(data):
     X = data.drop("Survived", axis=1)
@@ -228,8 +229,7 @@ def show_wiki():
     st.markdown(content[selected_language]["wiki_intro"])
     st.markdown(content[selected_language]["wiki_objective"])
     
-
-# Créer le wiki du projet
+# Créer la présentation des membres du projet
 def show_about():
     st.markdown(content[selected_language]["About_2"])
 
@@ -237,6 +237,13 @@ def show_about():
 def show_Analyse():
     st.markdown(content[selected_language]["Analyse_1"])
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
+    train = pd.read_csv("Data_from_Kaggle/train.csv")
+    sns.set(style="darkgrid")
+    fig_sex, ax = plt.subplots()
+    sns.countplot('Sex', hue='Survived', data=train, ax=ax)
+    # afficher le plot sur Streamlit
+    st.pyplot(fig_sex)
+
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
