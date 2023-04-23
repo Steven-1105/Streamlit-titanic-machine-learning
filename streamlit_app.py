@@ -157,7 +157,7 @@ def show_about():
 
 # Créer l'Analyse de données
 def show_Analyse():
-
+    st.markdown(content[selected_language]["About_1"])
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
