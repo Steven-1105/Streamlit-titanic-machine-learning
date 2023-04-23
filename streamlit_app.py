@@ -316,12 +316,11 @@ def show_Analyse():
 
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
-    deck = train['Cabin'].dropna()
-    levels = []
-    for level in deck:
-        levels.append(level[0])
+    cabin_col = train['Cabin']
+    cabin_col_filled = cabin_col.fillna('Unknown')
+    levels = [level[0] for level in cabin_col_filled]
     cabin_df = pd.DataFrame(levels, columns=['Cabin'])
-    fig_cabin = sns.catplot(x='Cabin', data=cabin_df, kind='count', order=['A','B','C','D','E','F','G'], aspect=2, palette='winter')
+    fig_cabin = sns.catplot(x='Cabin', data=cabin_df, kind='count', order=['A','B','C','D','E','F','G','Unknown'], aspect=2, palette='winter')
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
