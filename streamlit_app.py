@@ -5,7 +5,8 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
-# 定义英文和法语文本内容
+# 定义英文和法语文本内容 
+# Définir le contenu du texte en anglais et en français
 content = {
     "english": {
         "title": "Predicting the survival results of personalised Titanic passenger",
@@ -212,19 +213,22 @@ def show_prediction():
 
 # démarrer le programme
 if __name__ == '__main__':
-    # 用户选择语言
+    # 用户选择语言 
+    # Langues sélectionnées par l'utilisateur
     selected_language = st.sidebar.selectbox(
         "Select a language / Sélectionnez une langue",
         options=["english", "french"],
         format_func=lambda x: "English" if x == "english" else "Français",
     )
-    # 在侧边栏创建页面选择器
-    pages = ["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"]]
+    # 在页面内创建页面选择器
+    # Créer un sélecteur de page 
+    tab_wiki, tab_About, tab_prediction = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"]])
     selected_page = st.sidebar.selectbox(content[selected_language]["Choix"], pages)
     # 根据所选页面显示内容
-    if selected_page == "Wiki":
+    # Afficher le contenu en fonction de la page sélectionnée
+    with tab_wiki:
         show_wiki()
-    elif selected_page == content[selected_language]["About"]:
+    with tab_About:
         show_about()
-    elif selected_page == content[selected_language]["Prediction"]:
+    with tab_prediction:
         show_prediction()
