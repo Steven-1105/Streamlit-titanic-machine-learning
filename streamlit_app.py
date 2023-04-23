@@ -66,34 +66,32 @@ content = {
                         This project is supervised by Mr. Paul Boniol.
                     """,
         "Analyse" : "Data analysis",
-        "Analyse_1": """    We have 2 files: train.csv and test.csv.
-                            We will analyze the different available data to determine the main variables affecting a passenger's survival.
+        "Analyse_1": """We have 2 files: train.csv and test.csv.
+## Available data:
 
-                            ## Available data:
+| Variable | Definition | Key |
+| --- | --- | --- |
+| survival | Survival | 0 = No, 1 = Yes |
+| pclass | Ticket class | 1 = 1st, 2 = 2nd, 3 = 3rd |
+| sex | Sex | |
+| Age | Age in years | |
+| sibsp | # of siblings / spouses aboard the Titanic | |
+| parch | # of parents / children aboard the Titanic | |
+| ticket | Ticket number | |
+| fare | Passenger fare | |
+| cabin | Cabin number | |
+| embarked | Port of Embarkation | C = Cherbourg, Q = Queenstown, S = Southampton |
 
-                            | Variable | Definition | Key |
-                            |:--------:|:----------:|:---:|
-                            | survival | Survival | 0 = No, 1 = Yes |
-                            | pclass | Ticket class | 1 = 1st, 2 = 2nd, 3 = 3rd |
-                            | sex | Sex ||
-                            | Age | Age in years ||
-                            | sibsp | # of siblings / spouses aboard the Titanic ||
-                            | parch | # of parents / children aboard the Titanic ||
-                            | ticket | Ticket number ||
-                            | fare | Passenger fare ||
-                            | cabin | Cabin number ||
-                            | embarked | Port of Embarkation | C = Cherbourg, Q = Queenstown, S = Southampton |
+**pclass**: Social status:
+- 1st = high
+- 2nd = medium
+- 3rd = low
 
-                            **pclass**: Social status:
+**sibsp**: Number of family members (siblings, spouse)
 
-                            - 1st = high
-                            - 2nd = medium
-                            - 3rd = low
+**parch**: Number of parents/children.
+""", 
 
-                            **sibsp**: Number of family members (siblings, spouse)
-
-                            **parch**: Number of parents/children.
-                    """,
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -314,3 +312,4 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
