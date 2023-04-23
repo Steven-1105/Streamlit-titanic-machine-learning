@@ -313,17 +313,16 @@ def show_Analyse():
     fig_embarked, ax = plt.subplots()
     sns.countplot(data=train, x='Embarked', hue='Survived' )
 
-    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
     # Fill the missing values in the 'Cabin' column with 'Unknown'
-    train['Cabin'].fillna('Unknown', inplace=True)
+    # train['Cabin'].fillna('Unknown', inplace=True)
 
     # Extract the first letter from each value in the 'Cabin' column
     train['Cabin'] = train['Cabin'].apply(lambda x: x[0])
 
     # Create a countplot of 'Cabin' vs 'Survived'
-    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G','Unknown'], palette='winter', aspect=2)
+    fig_cabin = sns.catplot(x='Cabin', hue='Survived', data=train, kind='count', order=['A','B','C','D','E','F','G'], palette='winter', aspect=2)
 
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
@@ -332,6 +331,7 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_Age"])
     st.pyplot(fig_embarked)
     st.markdown(content[selected_language]["Analyse_Embarked"])
+    st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
     
