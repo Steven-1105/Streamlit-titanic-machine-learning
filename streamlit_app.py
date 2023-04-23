@@ -68,6 +68,7 @@ content = {
         "Analyse" : "Data analysis",
         "Analyse_1": """    We have 2 files: train.csv and test.csv.
                             We will analyze the different available data to determine the main variables affecting a passenger's survival.
+                            
                             ## Available data:
 
                             | Variable | Definition | Key |
@@ -92,7 +93,7 @@ content = {
                             **sibsp**: Number of family members (siblings, spouse)
 
                             **parch**: Number of parents/children.
-                     """,
+                    """,
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -313,3 +314,4 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
