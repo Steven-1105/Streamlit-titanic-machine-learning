@@ -150,34 +150,33 @@ content = {
                         Ce projet est encadré par M.Paul Boniol
                     """,
         "Analyse" : "Analyse de données",
-        "Analyse_1" :"""    On dispose de 2 fichiers : train.csv et test.csv.
-                            Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
+        "Analyse_1" :"""On dispose de 2 fichiers : train.csv et test.csv
+Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
 
-                            ## Données disponibles : 
+## Données disponibles : 
 
-                            | Variable  | Definition |  Key | 
-                            |:---------:|:----------:|:----:|
-                            |survival | Survival |  0 = No, 1 = Yes|
-                            |pclass | Ticket class |    1 = 1st, 2 = 2nd, 3 = 3rd|
-                            |sex |  Sex ||
-                            |Age |  Age in years|   |
-                            |sibsp |    # of siblings / spouses aboard the Titanic  ||
-                            |parch |    # of parents / children aboard the Titanic  ||
-                            |ticket |   Ticket number   ||
-                            |fare | Passenger fare  ||
-                            |cabin |    Cabin number||  
-                            |embarked | Port of Embarkation|    C = Cherbourg, Q = Queenstown, S = Southampton|
+| Variable  | Definition |  Key | 
+|:---------:|:----------:|:----:|
+|survival | Survival |  0 = No, 1 = Yes|
+|pclass | Ticket class |    1 = 1st, 2 = 2nd, 3 = 3rd|
+|sex |  Sex ||
+|Age |  Age in years|   |
+|sibsp |    # of siblings / spouses aboard the Titanic  ||
+|parch |    # of parents / children aboard the Titanic  ||
+|ticket |   Ticket number   ||
+|fare | Passenger fare  ||
+|cabin |    Cabin number||  
+|embarked | Port of Embarkation|    C = Cherbourg, Q = Queenstown, S = Southampton|
 
-                            **pclass**: Statut sociale :
+**pclass**: Statut sociale :
+- 1st = haute
+- 2nd = moyenne 
+- 3rd = basse
 
-                                - 1st = haute
-                                - 2nd = moyenne 
-                                - 3rd = basse
+**sibsp**: Nombre de membres de la famille (Frère/soeur, époux/femme)
 
-                            **sibsp**: Nombre de membres de la famille (Frère/soeur, époux/femme)
-
-                            **parch**: Nombre de parents / enfants.
-                    """,
+**parch**: Nombre de parents / enfants.
+""",
     },
 }
 
@@ -312,4 +311,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
