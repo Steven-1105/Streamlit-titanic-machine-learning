@@ -238,12 +238,28 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_1"])
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     train = pd.read_csv("Data_from_Kaggle/train.csv")
+    # sélectionner le style de seaborn
     sns.set(style="darkgrid")
+
+    # 绘制性别和生还情况的计数图
+    # résultat des chiffres relatifs au sexe et à la survie
     fig_sex, ax = plt.subplots()
     sns.countplot(data=train, x='Sex', hue='Survived')
+
+    # 绘制年龄和生还情况的直方图
+    # Histogrammes de l'âge et de la survie
+    fig_age, ax = plt.subplots()
+    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax)
+
+    # 绘制登船码头和生还情况的计数图
+    # résultat des chiffres relatifs au port d'embarquement et à la survie
+    fig_embarked, ax = plt.subplots()
+    sns.countplot(data=train, x='Embarked', hue='Survived' )
+
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
-
+    st.pyplot(fig_age)
+    st.pyplot(fig_embarked)
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
