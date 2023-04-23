@@ -334,7 +334,7 @@ def show_Analyse():
     # Histogrammes de l'âge et de la survie
     fig_age = plt.figure()
     ax = fig_age.add_subplot(1, 1, 1)
-    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax, palette='winter', aspect=2)
+    sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax, palette='winter')
     fig_age.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
