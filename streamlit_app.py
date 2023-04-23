@@ -61,7 +61,7 @@ content = {
                         ## Project Members
                         We are 4 students in our second year of Computer Science/Mathematics and Computer Science degree at the University Paris Descartes:
                         
-                        - Hongxiang Lin
+                        - Hongxiang LIN
                         - Matthieu Antonopoulos
                         - Melissa Merabet
                         - Timothé Miel
@@ -69,8 +69,8 @@ content = {
                         This project is supervised by Mr. Paul Boniol.
                     """,
         "Analyse" : "Data analysis",
-        "Analyse_1": """We have 2 files: train.csv and test.csv.\n 
-We will analyse the different data available to us in order to determine the main variables affecting the survival of a passenger.
+        "Analyse_1": """The challenge provides two files: train.csv and test.csv.\n 
+We are going to analyse the different data we have in order to determine the main variables affecting the survival of a passenger.
 ## Available data:
 
 | Variable | Definition | Key |
@@ -180,7 +180,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
                         ## Les membres du projet
                         Nous sommes 4 étudiants en 2ème année de licence informatique/mathématique et informatique à l'Unversité Paris Descartes:
 
-                        - Hongxiang Lin
+                        - Hongxiang LIN
                         - Matthieu Antonopoulos
                         - Melissa Merabet
                         - Timothé Miel
@@ -188,7 +188,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
                         Ce projet est encadré par M.Paul Boniol
                     """,
         "Analyse" : "Analyse de données",
-        "Analyse_1" :"""On dispose de 2 fichiers : train.csv et test.csv.\n
+        "Analyse_1" :"""La compétition nous a fournit deux fichiers : train.csv et test.csv.\n
 Nous allons analyser les différentes données à notre disposition afin de déterminer les principales variables jouant sur la survie d'un passager. 
 
 ## Données disponibles : 
@@ -434,5 +434,4 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
 
