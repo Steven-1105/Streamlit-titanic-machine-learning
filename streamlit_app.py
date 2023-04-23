@@ -86,6 +86,9 @@ We will analyse the different data available to us in order to determine the mai
 | cabin |  Cabin number | |
 | embarked |  Port of Embarkation |  C = Cherbourg, Q = Queenstown, S = Southampton |
 """, 
+        "Analyse_2" : """
+## Data analysis using seaborn and matplotlib.pyplot:
+        """,
         "Analyse_Embarked": """Through this histogram, we realize that:
 
 - For passengers who embarked from the port of Cherbourg, there were more survivors than deaths (about 75 deaths and 90 survivors)
@@ -204,6 +207,9 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 |cabin |  Numéro de la cabine||  
 |embarked |  Port d'embarquement|  C = Cherbourg, Q = Queenstown, S = Southampton|
 """,
+        "Analyse_2" : """
+## Analyse des données à l'aide de seaborn et matplotlib.pyplot:
+        """,
         "Analyse_Embarked" : """Par cet histogramme, nous réalisons que:
 
 - Pour les passagers ayant embarqué depuis le port de Cherbourg, il y a eu plus de survivants que de morts (environ 75 morts et 90 survivants)
@@ -302,6 +308,7 @@ def show_about():
 # Créer l'Analyse de données
 def show_Analyse():
     st.markdown(content[selected_language]["Analyse_1"])
+    st.markdown(content[selected_language]["Analyse_2"])
     train = pd.read_csv("Data_from_Kaggle/train.csv")
     # sélectionner le style de seaborn
     sns.set(style="darkgrid")
