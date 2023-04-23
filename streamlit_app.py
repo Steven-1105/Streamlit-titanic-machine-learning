@@ -102,7 +102,7 @@ We will analyse the different data available to us in order to determine the mai
 
 Therefore, people who embarked from the port of Cherbourg have survived the most. And the percentage of deaths is higher for those who embarked from the port of Southampton. This may be related to the class of passengers embarking from each port (hypothesis).
 """,
-        "Analyse_Sex" : "By this histogram, we notice that about 100 men survived against more than 450 deaths; and about a hundred women died against approximately 250 survivors. More than 2/3 of the survivors are women.",
+        "Analyse_Sex" : "By this histogram, we notice that about 100 men survived against more than 450 deaths; And about a hundred women died against approximately 250 survivors. More than 2/3 of the survivors are women.",
         "Analyse_Age" :"""According to the analysis graph, the following conclusions can be drawn:
 
 - Most of the passengers were between 20 and 40 years old;
@@ -112,6 +112,17 @@ Therefore, people who embarked from the port of Cherbourg have survived the most
 
 These conclusions indicate that age has a certain influence on the survival rate on the Titanic, especially for infants and young children, who had higher survival rates. The relatively low survival rate for passengers between the ages of 15 and 35 may be related to factors such as their position on the ship, gender, and cabin class. Therefore, passengers of different ages may need to adopt different survival strategies to improve their chances of survival on the Titanic.
         """,
+        "Analyse_Cabin": """According to the analysis graph, we can draw the following conclusions:
+
+- Most of the passengers' cabin information is missing;
+- Cabin information is represented by letters, which may represent different positions or levels;
+- Passengers whose cabin information is missing have a lower survival rate;
+- Among the passengers with cabin information, categories A, B, C, D, E, F, and G have relatively high survival rates, while category U has a lower survival rate;
+- Due to the large amount of missing cabin information, the conclusions of this analysis may not be accurate.
+
+In summary, cabin information may have a certain influence on passengers' survival rate, and specific cabin categories may be related to the survival rate. However, due to the lack of cabin information, the conclusions may be subject to errors and some imprecision.
+        """,
+
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -206,7 +217,7 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 Ce sont donc les personnes qui ont embarqué depuis le port de Cherbourg qui ont le plus survécu. Et le pourcentage de décès est plus élévé pour ceux qui ont embarqué depuis le port de Southampton. Cela peut être lié à la classe des passagers embarcant dans chaque ports (hypothèse)
 
 """,
-        "Analyse_Sex" : "Nous remarquons par cet histograme, qu'environ 100 hommes ont survécu contre plus de 450 morts; et qu'une centaine de femmes sont décédées contre environ 250 survivantes. Plus de 2/3 des survivants sont des femmes.",
+        "Analyse_Sex" : "Nous remarquons par cet histograme, qu'environ 100 hommes ont survécu contre plus de 450 morts; Et qu'une centaine de femmes sont décédées contre environ 250 survivantes. Plus de 2/3 des survivants sont des femmes.",
         "Analyse_Age" :"""Selon le graphique d'analyse, les conclusions suivantes peuvent être tirées :
 
 - La plupart des passagers étaient âgés entre 20 et 40 ans;
@@ -216,6 +227,16 @@ Ce sont donc les personnes qui ont embarqué depuis le port de Cherbourg qui ont
 
 Ces conclusions indiquent que l'âge a une certaine influence sur le taux de survie sur le Titanic, en particulier pour les nourrissons et les jeunes enfants, qui ont eu des taux de survie plus élevés. Le taux de survie relativement faible pour les passagers âgés de 15 à 35 ans peut être lié à des facteurs tels que leur position sur le navire, leur sexe et leur classe de cabine. Par conséquent, les passagers de différents âges peuvent avoir besoin d'adopter différentes stratégies de survie pour améliorer leurs chances de survie sur le Titanic.
 """,
+        "Analyse_Cabin" : """Selon le graphique d'analyse, nous pouvons tirer les conclusions suivantes :
+
+- La plupart des informations de cabine des passagers sont manquantes ;
+- Les informations de cabine sont représentées par des lettres, ce qui peut représenter différentes positions ou niveaux ;
+- Les passagers dont les informations de cabine sont manquantes ont un taux de survie plus faible ;
+- Parmi les passagers ayant des informations de cabine, les catégories A, B, C, D, E, F et G ont des taux de survie relativement élevés, tandis que la catégorie U a un taux de survie plus faible ;
+- En raison du grand nombre d'informations manquantes sur les cabines, les conclusions de cette analyse peuvent ne pas être précises.
+
+En résumé, les informations de cabine peuvent avoir une certaine influence sur le taux de survie des passagers, et des catégories de cabine spécifiques peuvent être liées au taux de survie. Cependant, en raison du manque d'informations sur les cabines, les conclusions peuvent être sujettes à des erreurs et à une certaine imprécision.
+        """,
     },
 }
 
@@ -292,6 +313,15 @@ def show_Analyse():
     fig_embarked, ax = plt.subplots()
     sns.countplot(data=train, x='Embarked', hue='Survived' )
 
+    # 绘制乘客船舱和生还情况的计数图
+    # résultat des chiffres relatifs au cabines et à la survie
+    train['Cabin'] = train['Cabin'].astype('category')
+    # Replace missing cabin values with "Unknown"
+    train['Cabin'].cat.add_categories("Unknown", inplace=True)
+    train['Cabin'].fillna("Unknown", inplace=True)
+    fig_cabin, ax = plt.subplots()
+    sns.countplot(x='Cabin', hue='Survived', data=train, ax=ax)
+
     # afficher le plot sur Streamlit
     st.pyplot(fig_sex)
     st.markdown(content[selected_language]["Analyse_Sex"])
@@ -299,6 +329,8 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_Age"])
     st.pyplot(fig_embarked)
     st.markdown(content[selected_language]["Analyse_Embarked"])
+    st.pyplot(fig_cabin)
+    st.markdown(content[selected_language]["Analyse_Cabin"])
     
 # Créer l'interface utilisateur de l'application
 def show_prediction():
