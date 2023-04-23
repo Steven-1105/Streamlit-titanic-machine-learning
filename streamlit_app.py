@@ -53,7 +53,7 @@ content = {
                          """,
         "About":"About us",
         "About_1":"to be countinue :)",
-        "Analyse" : "analysis",
+        "Analyse" : "Data analysis",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -99,7 +99,7 @@ content = {
                          """,
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
-        "Analyse" : "Analyse",
+        "Analyse" : "Analyse de données",
     },
 }
 
