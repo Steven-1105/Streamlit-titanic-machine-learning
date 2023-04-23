@@ -103,7 +103,9 @@ We will analyse the different data available to us in order to determine the mai
 
 Therefore, people who embarked from the port of Cherbourg have survived the most. And the percentage of deaths is higher for those who embarked from the port of Southampton. This may be related to the class of passengers embarking from each port (hypothesis).
 """,
+        "Analyse_Embarked_1" : "Distribution of survival by Port of Embarkation of Passengers",
         "Analyse_Sex" : "By this histogram, we notice that about 100 men survived against more than 450 deaths; And about a hundred women died against approximately 250 survivors. More than 2/3 of the survivors are women.",
+        "Analyse_Sex_1" : "Distribution of Survival by Sex of Passengers",
         "Analyse_Age" :"""According to the analysis graph, the following conclusions can be drawn:
 
 - Most of the passengers were between 20 and 40 years old
@@ -113,6 +115,7 @@ Therefore, people who embarked from the port of Cherbourg have survived the most
 
 These conclusions indicate that age has a certain influence on the survival rate on the Titanic, especially for infants and young children, who had higher survival rates. The relatively low survival rate for passengers between the ages of 15 and 35 may be related to factors such as their position on the ship, gender, and cabin class. Therefore, passengers of different ages may need to adopt different survival strategies to improve their chances of survival on the Titanic.
         """,
+        "Analyse_Age_1" : "Distribution of Survival by Age of Passengers",
         "Analyse_Cabin": """According to the analysis graph, we can draw the following conclusions:
 
 - Many passengers have lost their cabin information and the survival rate of these passengers is relatively low
@@ -123,6 +126,7 @@ These conclusions indicate that age has a certain influence on the survival rate
 
 In summary, cabin information may have a certain influence on passengers' survival rate, and specific cabin categories may be related to the survival rate. However, due to the lack of cabin information, the conclusions may be subject to errors and some imprecision.
         """,
+        "Analyse_Cabin_1" : "Distribution of Survival by Passenger Cabin",
         "Analyse_Pclass": """From this histogram, we observe that:
 
 - For the 1st class passengers, there are significantly more survivors than deaths (about 140 survivors and 80 deaths)
@@ -131,7 +135,7 @@ In summary, cabin information may have a certain influence on passengers' surviv
 
 Thus, it is the people in the first class who have survived the most. And the percentage of deaths is higher for 3rd class passengers.
 """,
-        "Analyse_Pclass_1" : "Distribution of Survival by Passenger Class"
+        "Analyse_Pclass_1" : "Distribution of Survival by Passenger Class",
 
     },
     "french": {
@@ -227,7 +231,9 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 Ce sont donc les personnes qui ont embarqué depuis le port de Cherbourg qui ont le plus survécu. Et le pourcentage de décès est plus élévé pour ceux qui ont embarqué depuis le port de Southampton. Cela peut être lié à la classe des passagers embarcant dans chaque ports (hypothèse)
 
 """,
+        "Analyse_Embarked_1" : "Répartition de la survie par port d'embarquement des passagers",
         "Analyse_Sex" : "Nous remarquons par cet histograme, qu'environ 100 hommes ont survécu contre plus de 450 morts; Et qu'une centaine de femmes sont décédées contre environ 250 survivantes. Plus de 2/3 des survivants sont des femmes.",
+        "Analyse_Sex_1" : "Distribution de la survie par sexe des passagers",
         "Analyse_Age" :"""Selon le graphique d'analyse, les conclusions suivantes peuvent être tirées :
 
 - La plupart des passagers étaient âgés entre 20 et 40 ans
@@ -237,6 +243,7 @@ Ce sont donc les personnes qui ont embarqué depuis le port de Cherbourg qui ont
 
 Ces conclusions indiquent que l'âge a une certaine influence sur le taux de survie sur le Titanic, en particulier pour les nourrissons et les jeunes enfants, qui ont eu des taux de survie plus élevés. Le taux de survie relativement faible pour les passagers âgés de 15 à 35 ans peut être lié à des facteurs tels que leur position sur le navire, leur sexe et leur classe de cabine. Par conséquent, les passagers de différents âges peuvent avoir besoin d'adopter différentes stratégies de survie pour améliorer leurs chances de survie sur le Titanic.
 """,
+        "Analyse_Age_1" : "Distribution de la survie par âge des passagers",
         "Analyse_Cabin" : """Selon le graphique d'analyse, nous pouvons tirer les conclusions suivantes :
 
 - De nombreux passagers ont perdu leurs informations de cabine et le taux de survie de ces passagers est relativement faible
@@ -247,6 +254,7 @@ Ces conclusions indiquent que l'âge a une certaine influence sur le taux de sur
 
 En résumé, les informations de cabine peuvent avoir une certaine influence sur le taux de survie des passagers, et des catégories de cabine spécifiques peuvent être liées au taux de survie. Cependant, en raison du manque d'informations sur les cabines, les conclusions peuvent être sujettes à des erreurs et à une certaine imprécision.
         """,
+        "Analyse_Cabin_1" : "Distribution des survies par cabine de passagers",
         "Analyse_Pclass" :"""Par cet histogramme, nous remarquons que :
 
 - Pour les passagers de 1ère classe, il y a largement plus de survivants que de morts (environ 140 survivants et 80 morts)
@@ -320,16 +328,19 @@ def show_Analyse():
     # résultat des chiffres relatifs au sexe et à la survie
     fig_sex, ax = plt.subplots()
     sns.countplot(data=train, x='Sex', hue='Survived')
+    fig_sex.fig.suptitle(content[selected_language]["Analyse_Sex_1"])
 
     # 绘制年龄和生还情况的直方图
     # Histogrammes de l'âge et de la survie
     fig_age, ax = plt.subplots()
     sns.histplot(data=train, x='Age', hue='Survived', element='step', kde=True, ax=ax)
+    fig_age.fig.suptitle(content[selected_language]["Analyse_Age_1"])
 
     # 绘制登船码头和生还情况的计数图
     # résultat des chiffres relatifs au port d'embarquement et à la survie
     fig_embarked, ax = plt.subplots()
     sns.countplot(data=train, x='Embarked', hue='Survived' )
+    fig_embarked.fig.suptitle(content[selected_language]["Analyse_Embarked_1"])
 
     # 绘制船舱等级和生还情况的计数图
     # résultat des chiffres relatifs au pclass et à la survie
@@ -435,4 +446,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
