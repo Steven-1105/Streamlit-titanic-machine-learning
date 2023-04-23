@@ -317,6 +317,7 @@ def show_Analyse():
     # résultat des chiffres relatifs au cabines et à la survie
     # Fill the missing values in the 'Cabin' column with 'Unknown'
     # train['Cabin'].fillna('Unknown', inplace=True)
+    train['Cabin'] = train['Cabin'].dropna()
 
     # Extract the first letter from each value in the 'Cabin' column
     train['Cabin'] = train['Cabin'].apply(lambda x: x[0])
@@ -409,4 +410,5 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
