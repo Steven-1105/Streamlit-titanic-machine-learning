@@ -18,6 +18,7 @@ content = {
         "image_2": "The cabins of the Titanic",
         "image_3": "feature importance",
         "image_3_conclusion": """By this figure, we notice that for the "Random Forest" model, the most influential features on the survival or not of a passenger are "Sex", "Fare" and "Age". """,
+        "image_4": "Correlation Matrix",
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",      
 #         "sidebar_1": """
@@ -140,6 +141,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
         "image_2": "Les cabines du Titanic",
         "image_3": "importance des features",
         "image_3_conclusion": """Par cette figure, nous constatons que pour le modèle "Random Forest", les features les plus influents sur la survie ou non d'un passager sont "Sex", "Fare" et "Age".""",
+        "image_4": "Matrice de Corrélation",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
 #         "sidebar_1" : """ 
@@ -363,6 +365,7 @@ def show_Analyse():
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
+    st.image("images/correlation matrix_2.png", caption=content[selected_language]["image_4"])
     st.image("images/features_importants.png", caption=content[selected_language]["image_3"])
     st.markdown(content[selected_language]["image_3_conclusion"])
 
@@ -440,5 +443,6 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
+
 
 
