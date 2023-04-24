@@ -365,14 +365,7 @@ def show_Analyse():
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
-    # Wrap the image in a container
-    with st.beta_container():
-        image = st.image("images/correlation matrix_2.png", caption=content[selected_language]["image_4"])
-    # Apply CSS style to center the container
-    image_container = image._get_container_style()
-    image_container["display"] = "flex"
-    image_container["justify-content"] = "center"
-    
+    st.image("images/correlation matrix_2.png", caption=content[selected_language]["image_4"], use_column_width=True)
     st.image("images/features_importants.png", caption=content[selected_language]["image_3"])
     st.markdown(content[selected_language]["image_3_conclusion"])
 
