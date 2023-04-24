@@ -16,6 +16,8 @@ content = {
         "question": "Please define the following information to predict the survival result of this passenger:",
         "image_1": "Sinking of the Titanic",
         "image_2": "The cabins of the Titanic",
+        "image_3": "feature importance",
+        "image_3_conclusion": """By this figure, we notice that for the "Random Forest" model, the most influential features on the survival or not of a passenger are "Sex", "Fare" and "Age". """,
         "result_1": "Result：surviving",
         "result_2": "Result：non-surviving",      
 #         "sidebar_1": """
@@ -136,6 +138,8 @@ Thus, it is the people in the first class who have survived the most. And the pe
         "question": "Veuillez définir les informations suivantes pour prédire le résultat de survie de ce passager:",
         "image_1": "Naufrage du Titanic",
         "image_2": "Les cabines du Titanic",
+        "image_3": "importance des features",
+        "image_3_conclusion": """Par cette figure, nous constatons que pour le modèle "Random Forest", les features les plus influents sur la survie ou non d'un passager sont "Sex", "Fare" et "Age".""",
         "result_1": "Résultat：survivant",
         "result_2": "Résultat：non survivant",
 #         "sidebar_1" : """ 
@@ -359,7 +363,9 @@ def show_Analyse():
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
-    
+    st.image("images/features_importants.png", caption=content[selected_language]["image_3"])
+    st.markdown(content[selected_language]["image_3_conclusion"])
+
 # Créer l'interface utilisateur de l'application
 def show_prediction():
     st.title(content[selected_language]["title"])
