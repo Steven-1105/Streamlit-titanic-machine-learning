@@ -61,6 +61,9 @@ content = {
         "Datasets_train" : """
 ## train.csv (Our training dataset): \n
 """,
+        "Datasets_test" : """
+## test.csv (Dataset used for prediction): \n
+""",
         "About":"About us",
         "About_1":"to be countinue :)",
         "About_2":  """
@@ -185,6 +188,9 @@ Thus, it is the people in the first class who have survived the most. And the pe
                          """,
         "Datasets_train" : """
 ## train.csv (Notre dataset d'entraînement): \n
+""",
+        "Datasets_test" : """
+## test.csv (Dataset utilisé pour la prédiction) : \n
 """,
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
@@ -316,7 +322,8 @@ def show_Datasets():
     test = pd.read_csv("Data_from_Kaggle/test.csv")
     st.markdown(content[selected_language]["Datasets_train"])
     st.dataframe(train)
-
+    st.markdown(content[selected_language]["Datasets_test"])
+    st.dataframe(test)
 
 # Créer la présentation des membres du projet
 def show_about():
