@@ -140,13 +140,14 @@ Thus, it is the people in the first class who have survived the most. And the pe
         "Analyse_Pclass_1" : "Distribution of Survival by Passenger Class",
         "Analyse_SibSp" : """Through this histogram, we recognise that:
 
-- We can see from this histogram that there are passengers who have up to 8 brothers/sisters on board the ship
-- The majority of passengers have a number of siblings / spouses aboard the Titanic count of 0 or 1
+- We can see from this histogram that there are passengers who have up to 8 siblings/sisters on board the ship
+- The majority of passengers have a number of siblings/spouses aboard the Titanic count of 0 or 1
 - Only if the number of siblings/spouses of the passengers on board Titanic is 1, the number of their survivors is greater than the number of those who perished
 
 In conclusion, the number of siblings/spouses of a passenger on board Titanic had an effect on the survival rate of that passenger, especially when it equalled 1, more passengers survived.
 """,
-        "Analyse_SibSp_1" : "Distribution of Survival by Passenger's Number of siblings / spouses aboard the Titanic",
+        "Analyse_SibSp_1" : "Distribution of Survival by Passenger's Number of siblings/spouses aboard the Titanic",
+        "Analyse_Parch_1" : "Distribution of Survival by Passenger's Number of parents/children aboard the Titanic",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -226,7 +227,7 @@ Nous allons analyser les différentes données à notre disposition afin de dét
 |sex |  Sexe ||
 |Age |  Âge en années|   |
 |sibsp |  Nombre de frères/soeurs/époux à bord du Titanic  ||
-|parch |  Nombre de parents / enfants à bord du Titanic  ||
+|parch |  Nombre de parents/enfants à bord du Titanic  ||
 |ticket |  Numéro du billet  ||
 |fare | Tarif du passager  ||
 |cabin |  Numéro de la cabine||  
@@ -279,12 +280,13 @@ Ainsi ce sont les personnes de la première classe qui ont le plus suvécu. Et l
         "Analyse_SibSp_1" : "Répartition de la survie par Nombre de frères/soeurs/époux à bord du Titanic de passagers",
         "Analyse_SibSp" : """ À travers cet histogramme, nous reconnaissons que :
 
-- Nous pouvons voir sur cet histogramme qu'il y a des passagers qui ont jusqu'à 8 frères/sœurs à bord du navire.
-- La majorité des passagers ont un nombre de frères et sœurs / conjoints à bord du Titanic de 0 ou 1
-- Ce n'est que si le nombre de frères et sœurs/conjoints des passagers à bord du Titanic est de 1 que le nombre de leurs survivants est supérieur au nombre de ceux qui ont péri.
+- Nous pouvons voir sur cet histogramme qu'il y a des passagers qui ont jusqu'à 8 frères et soeurs/époux à bord du navire.
+- La majorité des passagers ont un nombre de frères et soeurs/époux à bord du Titanic de 0 ou 1
+- Ce n'est que si le nombre de frères et soeurs/époux des passagers à bord du Titanic est de 1 que le nombre de leurs survivants est supérieur au nombre de ceux qui ont péri.
 
-En conclusion, le nombre de frères et sœurs/conjoints d'un passager à bord du Titanic a un effet sur le taux de survie de ce passager, surtout lorsqu'il est égal à 1, plus de passagers ont survécu.
+En conclusion, le nombre de frères et soeurs/époux d'un passager à bord du Titanic a un effet sur le taux de survie de ce passager, surtout lorsqu'il est égal à 1, plus de passagers ont survécu.
 """,
+        "Analyse_Parch_1" : "Répartition de la survie par Nombre de parents/enfants à bord du Titanic de passagers",
     },
 }
 
@@ -378,11 +380,23 @@ def show_Analyse():
     # Set the plot title
     fig_pclass.fig.suptitle(content[selected_language]["Analyse_Pclass_1"])
 
+    # 绘制SibSp和生还情况的计数图
+    # résultat des chiffres relatifs au Sibsp et à la survie
+    fig_sibsp = sns.catplot(x='SibSp', hue='Survived', data=train, kind='count', aspect=2)
+    # Set the plot title
+    fig_sibsp.fig.suptitle(content[selected_language]["Analyse_SibSp_1"])
+
     # 绘制Sibsp和生还情况的计数图
     # résultat des chiffres relatifs au Sibsp et à la survie
     fig_sibsp = sns.catplot(x='SibSp', hue='Survived', data=train, kind='count', aspect=2)
     # Set the plot title
     fig_sibsp.fig.suptitle(content[selected_language]["Analyse_SibSp_1"])
+
+    # 绘制Parch和生还情况的计数图
+    # résultat des chiffres relatifs au Sibsp et à la survie
+    fig_parch = sns.catplot(x='Parch', hue='Survived', data=train, kind='count', aspect=2)
+    # Set the plot title
+    fig_parch.fig.suptitle(content[selected_language]["Analyse_Parch_1"])
 
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
@@ -407,6 +421,7 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_Pclass"])
     st.pyplot(fig_sibsp)
     st.markdown(content[selected_language]["Analyse_SibSp"])
+    st.pyplot(fig_Parch)
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
@@ -490,4 +505,5 @@ if __name__ == '__main__':
         show_Analyse()
     with tab_Datasets:
         show_Datasets()
+
 
