@@ -138,7 +138,7 @@ In summary, cabin information may have a certain influence on passengers' surviv
 Thus, it is the people in the first class who have survived the most. And the percentage of deaths is higher for 3rd class passengers.
 """,
         "Analyse_Pclass_1" : "Distribution of Survival by Passenger Class",
-        "Analyse_Sibsp" : """Through this histogram, we recognise that:
+        "Analyse_SibSp" : """Through this histogram, we recognise that:
 
 - We can see from this histogram that there are passengers who have up to 8 brothers/sisters on board the ship
 - The majority of passengers have a number of siblings / spouses aboard the Titanic count of 0 or 1
@@ -146,7 +146,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
 
 In conclusion, the number of siblings/spouses of a passenger on board Titanic had an effect on the survival rate of that passenger, especially when it equalled 1, more passengers survived.
 """,
-        "Analyse_Sibsp_1" : "Distribution of Survival by Passenger's Number of siblings / spouses aboard the Titanic",
+        "Analyse_SibSp_1" : "Distribution of Survival by Passenger's Number of siblings / spouses aboard the Titanic",
     },
     "french": {
         "title": "Prédiction du résultat de survie d'un passager personnalisé au Titanic",
@@ -276,8 +276,8 @@ En résumé, les informations de cabine peuvent avoir une certaine influence sur
 Ainsi ce sont les personnes de la première classe qui ont le plus suvécu. Et le pourcentage de décès est plus élévé pour les passagers de 3ème classe.
 """,
         "Analyse_Pclass_1" : "Répartition de la survie par classe de passagers",
-        "Analyse_Sibsp_1" : "Répartition de la survie par Nombre de frères/soeurs/époux à bord du Titanic de passagers",
-        "Analyse_Sibsp" : """ À travers cet histogramme, nous reconnaissons que :
+        "Analyse_SibSp_1" : "Répartition de la survie par Nombre de frères/soeurs/époux à bord du Titanic de passagers",
+        "Analyse_SibSp" : """ À travers cet histogramme, nous reconnaissons que :
 
 - Nous pouvons voir sur cet histogramme qu'il y a des passagers qui ont jusqu'à 8 frères/sœurs à bord du navire.
 - La majorité des passagers ont un nombre de frères et sœurs / conjoints à bord du Titanic de 0 ou 1
@@ -380,9 +380,9 @@ def show_Analyse():
 
     # 绘制Sibsp和生还情况的计数图
     # résultat des chiffres relatifs au Sibsp et à la survie
-    fig_sibsp = sns.catplot(x='Sibsp', hue='Survived', data=train, kind='count', aspect=2)
+    fig_sibsp = sns.catplot(x='SibSp', hue='Survived', data=train, kind='count', aspect=2)
     # Set the plot title
-    fig_sibsp.fig.suptitle(content[selected_language]["Analyse_Sibsp_1"])
+    fig_sibsp.fig.suptitle(content[selected_language]["Analyse_SibSp_1"])
 
     # 绘制乘客船舱和生还情况的计数图
     # résultat des chiffres relatifs au cabines et à la survie
@@ -406,7 +406,7 @@ def show_Analyse():
     st.pyplot(fig_pclass)
     st.markdown(content[selected_language]["Analyse_Pclass"])
     st.pyplot(fig_sibsp)
-    st.markdown(content[selected_language]["Analyse_Sibsp"])
+    st.markdown(content[selected_language]["Analyse_SibSp"])
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
