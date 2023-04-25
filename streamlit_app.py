@@ -315,7 +315,7 @@ def show_Datasets():
     train = pd.read_csv("Data_from_Kaggle/train.csv")
     test = pd.read_csv("Data_from_Kaggle/test.csv")
     st.markdown(content[selected_language]["Datasets_train"])
-    st.table(train)
+    st.dataframe(train)
 
 
 # Créer la présentation des membres du projet
