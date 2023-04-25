@@ -421,7 +421,7 @@ def show_Analyse():
     st.markdown(content[selected_language]["Analyse_Pclass"])
     st.pyplot(fig_sibsp)
     st.markdown(content[selected_language]["Analyse_SibSp"])
-    st.pyplot(fig_Parch)
+    st.pyplot(fig_parch)
     st.image("images/Cabin_Titanic.webp", caption=content[selected_language]["image_2"])
     st.pyplot(fig_cabin)
     st.markdown(content[selected_language]["Analyse_Cabin"])
