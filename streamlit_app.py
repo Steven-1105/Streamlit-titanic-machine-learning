@@ -141,7 +141,7 @@ Thus, it is the people in the first class who have survived the most. And the pe
         "Analyse_SibSp" : """Through this histogram, we recognise that:
 
 - We can see from this histogram that there are passengers who have up to 8 siblings/sisters on board the ship
-- The majority of passengers have a number of siblings/spouses aboard the Titanic count of 0 or 1
+- The majority of passengers have a number of siblings/spouses aboard the Titanic count of 0
 - Only if the number of siblings/spouses of the passengers on board Titanic is 1, the number of their survivors is greater than the number of those who perished
 
 In conclusion, the number of siblings/spouses of a passenger on board Titanic had an effect on the survival rate of that passenger, especially when it equalled 1, more passengers survived.
@@ -151,7 +151,7 @@ In conclusion, the number of siblings/spouses of a passenger on board Titanic ha
         "Analyse_Parch": """ By this histogram, we acknowledge that :
 
 - We can see from this histogram that there is one passenger who has up to 6 parents/children on board the Titanic
-- The majority of passengers have a number of parents/children on board the Titanic of 0
+- The majority of passengers have also a number of parents/children on board the Titanic of 0
 - Only if the number of parents/children of the passengers on board the Titanic is 1 or 2, the number of their survivors is greater than or equal to the number of those who perished
 
 In conclusion, the number of parents/children of a passenger on the Titanic has an effect on the survival rate of that passenger, especially when it is equal to 1 or 2, more or equal passengers survived.
@@ -298,7 +298,7 @@ En conclusion, le nombre de frères et soeurs/époux d'un passager à bord du Ti
         "Analyse_Parch" : """ À travers cet histogramme, nous voyons que :
 
 - Nous pouvons voir sur cet histogramme qu'il y a un passager qui a jusqu'à 6 parents/enfants à bord du Titanic.
-- La majorité des passagers ont un nombre de parents/enfants à bord du Titanic de 0
+- La majorité des passagers ont aussi un nombre de parents/enfants à bord du Titanic de 0
 - Ce n'est que si le nombre de parents/enfants des passagers à bord du Titanic est de 1 ou 2 que le nombre de leurs survivants est supérieur ou égal au nombre de ceux qui ont péri.
 
 En conclusion, le nombre de parents/enfants d'un passager à bord du Titanic a un effet sur le taux de survie de ce passager, surtout lorsqu'il est égal à 1 ou 2, plus ou égal de passagers ont survécu.
@@ -522,3 +522,4 @@ if __name__ == '__main__':
         show_Analyse()
     with tab_Datasets:
         show_Datasets()
+
