@@ -58,6 +58,9 @@ content = {
 
                             You may find more information about the Kaggle challenge here: [Kaggle Titanic Challenge](https://www.kaggle.com/competitions/titanic/overview)
                          """,
+        "Datasets_train" : """
+## train.csv (Our training dataset): \n
+""",
         "About":"About us",
         "About_1":"to be countinue :)",
         "About_2":  """
@@ -180,6 +183,9 @@ Thus, it is the people in the first class who have survived the most. And the pe
 
                             Pour plus d'informations concernant les modalités du concours Kaggle : https://www.kaggle.com/competitions/titanic/overview
                          """,
+        "Datasets_train" : """
+## train.csv (Notre dataset d'entraînement): \n
+""",
         "About":"A propos de nous",
         "About_1" : "à compléter :)",
         "About_2" : """
@@ -305,6 +311,13 @@ def show_wiki():
     st.markdown(content[selected_language]["wiki_intro"])
     st.markdown(content[selected_language]["wiki_objective"])
     
+def show_Datasets():
+    train = pd.read_csv("Data_from_Kaggle/train.csv")
+    test = pd.read_csv("Data_from_Kaggle/test.csv")
+    st.markdown(content[selected_language]["Datasets_train"])
+    st.table(train)
+
+
 # Créer la présentation des membres du projet
 def show_about():
     st.markdown(content[selected_language]["About_2"])
@@ -432,7 +445,7 @@ if __name__ == '__main__':
     )
     # 在页面内创建页面选择器
     # Créer un sélecteur de page 
-    tab_wiki, tab_About, tab_Prediction, tab_Analyse = st.tabs(["Wiki",content[selected_language]["About"], content[selected_language]["Prediction"],content[selected_language]["Analyse"]])
+    tab_wiki, tab_About, tab_Prediction, tab_Analyse = st.tabs(["Wiki","Datasets",content[selected_language]["About"], content[selected_language]["Prediction"],content[selected_language]["Analyse"]])
     # 根据所选页面显示内容
     # Afficher le contenu en fonction de la page sélectionnée
     with tab_wiki:
@@ -443,5 +456,6 @@ if __name__ == '__main__':
         show_prediction()
     with tab_Analyse:
         show_Analyse()
-
+    with tab_Datasets:
+        show_Datasets()
 
