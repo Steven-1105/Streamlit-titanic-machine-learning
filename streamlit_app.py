@@ -148,7 +148,7 @@ In conclusion, the number of siblings/spouses of a passenger on board Titanic ha
 """,
         "Analyse_SibSp_1" : "Distribution of Survival by Passenger's Number of siblings/spouses aboard the Titanic",
         "Analyse_Parch_1" : "Distribution of Survival by Passenger's Number of parents/children aboard the Titanic",
-        "Analysis_Parch": """ By this histogram, we recognize that :
+        "Analyse_Parch": """ By this histogram, we recognize that :
 
 - We can see from this histogram that there is one passenger who has up to 6 parents/children on board the Titanic
 - The majority of passengers have a number of parents/children on board the Titanic of 0
