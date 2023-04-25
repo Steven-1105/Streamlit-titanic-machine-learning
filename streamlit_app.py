@@ -148,7 +148,7 @@ In conclusion, the number of siblings/spouses of a passenger on board Titanic ha
 """,
         "Analyse_SibSp_1" : "Distribution of Survival by Passenger's Number of siblings/spouses aboard the Titanic",
         "Analyse_Parch_1" : "Distribution of Survival by Passenger's Number of parents/children aboard the Titanic",
-        "Analyse_Parch": """ By this histogram, we recognize that :
+        "Analyse_Parch": """ By this histogram, we acknowledge that :
 
 - We can see from this histogram that there is one passenger who has up to 6 parents/children on board the Titanic
 - The majority of passengers have a number of parents/children on board the Titanic of 0
@@ -295,7 +295,7 @@ Ainsi ce sont les personnes de la première classe qui ont le plus suvécu. Et l
 En conclusion, le nombre de frères et soeurs/époux d'un passager à bord du Titanic a un effet sur le taux de survie de ce passager, surtout lorsqu'il est égal à 1, plus de passagers ont survécu.
 """,
         "Analyse_Parch_1" : "Répartition de la survie par Nombre de parents/enfants à bord du Titanic de passagers",
-        "Analyse_Parch" : """ À travers cet histogramme, nous reconnaissons que :
+        "Analyse_Parch" : """ À travers cet histogramme, nous voyons que :
 
 - Nous pouvons voir sur cet histogramme qu'il y a un passager qui a jusqu'à 6 parents/enfants à bord du Titanic.
 - La majorité des passagers ont un nombre de parents/enfants à bord du Titanic de 0
@@ -522,4 +522,3 @@ if __name__ == '__main__':
         show_Analyse()
     with tab_Datasets:
         show_Datasets()
-
