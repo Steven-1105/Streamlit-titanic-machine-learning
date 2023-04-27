@@ -68,7 +68,7 @@ content = {
         "About_1":"to be countinue :)",
         "About_2":  """
                         ## Project Members
-                        We are 4 students in our second year of Computer Science/Mathematics and Computer Science degree at the University Paris Descartes:
+                        We are 4 students in our second year of Computer Science/Mathematics and Computer Science degree at the University Paris Cité:
                         
                         - Hongxiang Lin
                         - Matthieu Antonopoulos
@@ -213,7 +213,7 @@ In conclusion, the number of parents/children of a passenger on the Titanic has 
         "About_1" : "à compléter :)",
         "About_2" : """
                         ## Les membres du projet
-                        Nous sommes 4 étudiants en 2ème année de licence informatique/mathématique et informatique à l'Unversité Paris Descartes:
+                        Nous sommes 4 étudiants en 2ème année de licence informatique/mathématique et informatique à l'Unversité Paris Cité:
 
                         - Hongxiang Lin
                         - Matthieu Antonopoulos
