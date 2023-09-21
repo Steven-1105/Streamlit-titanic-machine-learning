@@ -375,7 +375,7 @@ def show_Analyse():
     # 绘制性别和生还情况的计数图
     # résultat des chiffres relatifs au sexe et à la survie
     fig_sex, ax = plt.subplots()
-    sns.catplot(data=train, x='Sex', hue='Survived', kind='count')
+    sns.catplot(data=train, x='Sex', hue='Survived', kind='count', legend=False)
     ax.set_title(content[selected_language]["Analyse_Sex_1"])
 
     # 绘制年龄和生还情况的直方图
