@@ -199,7 +199,9 @@ In conclusion, the number of parents/children of a passenger on the Titanic has 
                             Afin de réaliser ce projet, nous aurons accès à deux sets de donnés incluant des informations propres aux passagers telles que le nom, l'âge, le sex, classe sociale, etc... Le premier dataset est intitulé 'train.csv' et le second 'test.csv'
 
                             - train.csv contient les informations d'une partie des passagers à bord du Titanic au moment du naufrage (891 passagers pour être exact). De plus ce dataset contient l'information sur la survie ou non de chaque passagers. On appel cette information la "vérité terrain", elle nous permettra d'entrainer notre modèle et d'établir des liens entre informations des passagers et la survie.
-                            - test.csv contient des informations similaires au premier dataset à l'exception près que nous n'aurons aucune informations concernant la survie des passagers ("vérité terrain"). Ainsi nous devrons utiliser différents modèles de Machine Learning pour prédire au mieux la survie de ces 418 passagers du fichier 'test.csv'
+                            - test.csv contient des informations similaires au premier dataset à l'exception près que nous n'aurons aucune informations concernant la survie des passagers ("vérité terrain").
+                            
+                            Ainsi nous devrons utiliser différents modèles de Machine Learning pour prédire au mieux la survie de ces 418 passagers du fichier 'test.csv'
 
                             Pour plus d'informations concernant les modalités du concours Kaggle : https://www.kaggle.com/competitions/titanic/overview
                          """,
