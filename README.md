@@ -8,7 +8,7 @@
 <div align="center">
 <p>
   
-<p align="center"><a href="https://steven-1105-streamlit-titanic-machine-lear-streamlit-app-9eum17.streamlit.app/">Try our demo</a></p>
+<p align="center"><a href="https://projetl2i1.streamlit.app/">Try our demo</a></p>
 <p align="center">
 <img width="800" src="images/capture_demo2.jpeg"/>
 <p>
